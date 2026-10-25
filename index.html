@@ -1703,17 +1703,17 @@
         position: absolute;
         height: auto;
         left: 6%;
-        top: 27.6%;
+        top: 37.6%;
         width: 87.7%;
       }
       .msc .pun {
         left: 4%;
-        top: 9%;
+        top: 10.6%;
         width: 54.5%;
       }
       .msc .aar {
         left: 49.2%;
-        top: 67%;
+        top: 65.4%;
         width: 44.5%;
       }
       .msc .pun,
@@ -3521,12 +3521,13 @@
         while (g.firstChild) g.removeChild(g.firstChild);
         g.removeAttribute("opacity");
         /* ===== WAVE SETTINGS: change these numbers ===== */
-        var V = 200 /* speed of the wave going up */,
-          BACK = 200 /* speed of the reflected wave coming back down */,
-          N = 6 /* number of lines in the wave */,
-          G0 = 12,
-          G1 = 0.08 /* gap between lines: starting gap, and how much it grows as the wave travels */,
-          STRETCH = 0.3 /* how quickly the circles flatten into wide ellipses (0 = stay circular, higher = flatter sooner) */,
+        var V = 190 /* speed of the wave going up */,
+          BACK = 190 /* speed of the reflected wave coming back down */,
+          N = 5 /* number of lines in the wave */,
+          G0 = 13,
+          G1 = 0.07 /* gap between lines: starting gap, and how much it grows as the wave travels */,
+          STRETCH = 0.5 /* how quickly the innermost line flattens into a wide ellipse (0 = stays circular, higher = flatter sooner) */,
+          OUTER = 1.2 /* extra flattening for the outer lines: the outermost line flattens (1 + OUTER) times as much as the innermost, lines in between scale evenly. 0 = all lines flatten alike */,
           P = 12 /* length of one loop, in seconds */,
           FADE = 3.4 /* seconds the reflected wave takes to travel back down and fade */,
           OP = 0.3 /* brightness of the wave */,
@@ -3579,9 +3580,10 @@
           var r = V * k * t;
           return r - i * (G0 * k + G1 * r);
         }
-        /* half-width of the ellipse for a given distance travelled: starts circular, gets wider and flatter */
-        function rx(d) {
-          return d * (1 + (STRETCH * Math.min(d, 2 * H)) / H);
+        /* half-width of the ellipse for line i at a given distance travelled: starts circular, gets wider and flatter (outer lines faster) */
+        function rx(d, i) {
+          var outer = N > 1 ? (N - 1 - i) / (N - 1) : 0; /* 1 for the outermost line (0), 0 for the innermost */
+          return d * (1 + (STRETCH * (1 + OUTER * outer) * Math.min(d, 2 * H)) / H);
         }
         function size() {
           W = svg.clientWidth || 1200;
@@ -3619,7 +3621,7 @@
               /* going up: ellipse centred on the bottom centre */
               a = es(t / 1.4) * (0.5 + 0.5 * es(d / (H * 0.62)));
               a *= 0.85 + 0.15 * Math.sin((6.2832 * t) / 1.9 + i * 1.4);
-              put(e, W / 2, H, rx(d), d, OP * a);
+              put(e, W / 2, H, rx(d, i), d, OP * a);
             } else {
               /* reflected: the same wave mirrored in the top edge, so it curves the other way and travels back down */
               u = (t - TC[i]) / FADE;
@@ -3630,7 +3632,7 @@
               d = H + BACK * k * (t - TC[i]);
               a = 1 - es(u);
               a *= 0.85 + 0.15 * Math.sin((6.2832 * t) / 1.9 + i * 1.4);
-              put(e, W / 2, -H, rx(d), d, OP * a);
+              put(e, W / 2, -H, rx(d, i), d, OP * a);
             }
           });
         }
