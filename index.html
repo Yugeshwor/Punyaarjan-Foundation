@@ -1690,18 +1690,31 @@
           height: 260px;
         }
       }
+      /* Punyaarjan meaning graphic: three separately cropped images placed by percentage.
+         Wordmark = centre, .pun = upper-left label, .aar = lower-right label.
+         To nudge a piece, change its left / top / width (all % of the graphic's box). */
       .msc {
         position: relative;
-        width: min(920px, 100%);
-        aspect-ratio: 1500/747;
+        width: min(720px, 100%);
+        aspect-ratio: 1318/708;
         margin: 0 auto 48px;
       }
       .msc img {
         position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+        height: auto;
+        left: 6%;
+        top: 37.6%;
+        width: 87.7%;
+      }
+      .msc .pun {
+        left: 4%;
+        top: 10.6%;
+        width: 54.5%;
+      }
+      .msc .aar {
+        left: 49.2%;
+        top: 65.4%;
+        width: 44.5%;
       }
       .msc .pun,
       .msc .aar {
@@ -1720,9 +1733,6 @@
       :root[data-theme="dark"] .msc img,
       :root[data-theme="dark"] .mean {
         filter: invert(1) hue-rotate(180deg);
-      }
-      .msc {
-        width: min(600px, 100%);
       }
       .article .mean {
         max-width: 440px;
