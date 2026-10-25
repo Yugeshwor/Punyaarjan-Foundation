@@ -1703,17 +1703,17 @@
         position: absolute;
         height: auto;
         left: 6%;
-        top: 28.6%;
+        top: 37.6%;
         width: 87.7%;
       }
       .msc .pun {
         left: 4%;
-        top: 9%;
+        top: 10.6%;
         width: 54.5%;
       }
       .msc .aar {
         left: 49.2%;
-        top: 67.4%;
+        top: 65.4%;
         width: 44.5%;
       }
       .msc .pun,
@@ -1916,6 +1916,19 @@
         .rbook { grid-template-columns: 1fr; gap: 32px; }
         .rbook .pf { max-width: 300px; }
       }
+    
+      /* ---- Hero fills the whole first screen (viewport minus the header; --hh is measured by the script) ---- */
+      .hero {
+        display: flex;
+        align-items: center;
+        min-height: calc(100vh - var(--hh, 80px));
+        min-height: calc(100svh - var(--hh, 80px));
+      }
+      .hero .wrap.hc {
+        width: 100%;
+        padding-top: clamp(48px, 10vh, 120px);
+        padding-bottom: clamp(48px, 10vh, 120px);
+      }
     </style>
   </head>
 
@@ -1941,18 +1954,13 @@
         <div class="hero">
           <svg class="rip" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <g fill="none" stroke="#fff6df" stroke-width="1.5" opacity=".24">
-              <circle cx="1140" cy="570" r="110" />
-              <circle cx="1140" cy="570" r="210" />
-              <circle cx="1140" cy="570" r="310" />
-              <circle cx="1140" cy="570" r="410" />
-              <circle cx="1140" cy="570" r="510" />
-              <circle cx="1140" cy="570" r="610" />
-              <circle cx="1140" cy="570" r="710" />
-              <circle cx="50" cy="30" r="90" />
-              <circle cx="50" cy="30" r="170" />
-              <circle cx="50" cy="30" r="250" />
-              <circle cx="50" cy="30" r="330" />
-              <circle cx="50" cy="30" r="410" />
+              <circle cx="600" cy="600" r="110" />
+              <circle cx="600" cy="600" r="210" />
+              <circle cx="600" cy="600" r="310" />
+              <circle cx="600" cy="600" r="410" />
+              <circle cx="600" cy="600" r="510" />
+              <circle cx="600" cy="600" r="610" />
+              <circle cx="600" cy="600" r="710" />
             </g>
           </svg>
           <div class="wrap hc">
@@ -3480,6 +3488,16 @@
       addEventListener("hashchange", route);
       route();
 
+      /* ---------- Header height -> --hh, so the hero can fill exactly the rest of the first screen ---------- */
+      (function () {
+        var h = document.querySelector("header");
+        function set() {
+          if (h) document.documentElement.style.setProperty("--hh", h.offsetHeight + "px");
+        }
+        set();
+        addEventListener("resize", set);
+        addEventListener("load", set);
+      })();
       /* ---------- Mobile menu: hamburger toggles the nav; closes on link tap, route change or Escape ---------- */
       (function () {
         var h = document.querySelector("header"), b = document.querySelector(".menu-btn");
@@ -3493,6 +3511,7 @@
       })();
     </script>
     <script>
+      /* ---------- Hero wave: rises from the bottom centre as flattening ellipses, hits the top edge, flips and comes back down ---------- */
       (function () {
         var svg = document.querySelector(".rip");
         if (!svg) return;
@@ -3502,43 +3521,36 @@
         while (g.firstChild) g.removeChild(g.firstChild);
         g.removeAttribute("opacity");
         /* ===== WAVE SETTINGS: change these numbers ===== */
-        var FLIP = true /* true: large wave from bottom-right, small from top-left. false: bottom-left / top-right */,
-          VL = 190 /* speed of the large wave */,
-          VS = 70 /* speed of the small wave */,
-          NL = 5,
-          NSM = 3 /* number of lines in the large / small wave */,
-          GL0 = 14,
-          GL1 = 0.07 /* large wave line gap: starting gap, and how much it grows as the wave travels (spread) */,
-          GS0 = 12,
-          GS1 = 0.06 /* same for the small wave */,
-          P = 11 /* length of one loop, in seconds */,
-          BACK = 170 /* speed of the reflected wave coming back */,
-          RMS = 640 /* distance at which the small wave has faded away */,
-          OL = 0.3,
-          OS = 0.26 /* brightness of the large / small wave */,
+        var V = 190 /* speed of the wave going up */,
+          BACK = 190 /* speed of the reflected wave coming back down */,
+          N = 5 /* number of lines in the wave */,
+          G0 = 14,
+          G1 = 0.07 /* gap between lines: starting gap, and how much it grows as the wave travels */,
+          STRETCH = 2.5 /* how quickly the circles flatten into wide ellipses (0 = stay circular, higher = flatter sooner) */,
+          P = 9 /* length of one loop, in seconds */,
+          FADE = 3.4 /* seconds the reflected wave takes to travel back down and fade */,
+          OP = 0.3 /* brightness of the wave */,
           SW = 1.5; /* line thickness */
         /* =============================================== */
-        var L = FLIP ? [1160, 580] : [40, 580],
-          S = FLIP ? [40, 30] : [1160, 30],
-          D = Math.hypot(L[0] - S[0], L[1] - S[1]);
-        var ang = Math.atan2(S[1] - L[1], S[0] - L[0]),
-          nx = -Math.sin(ang),
-          ny = Math.cos(ang),
-          cx = (L[0] + S[0]) / 2,
-          cy = (L[1] + S[1]) / 2;
+        var W = 1200,
+          H = 600,
+          k = 1,
+          TC = [],
+          i;
+        svg.setAttribute("preserveAspectRatio", "none");
         var df = document.createElementNS(NS, "defs"),
           lg = document.createElementNS(NS, "linearGradient");
         lg.setAttribute("id", "wvg");
         lg.setAttribute("gradientUnits", "userSpaceOnUse");
-        lg.setAttribute("x1", (cx - nx * 640).toFixed(0));
-        lg.setAttribute("y1", (cy - ny * 640).toFixed(0));
-        lg.setAttribute("x2", (cx + nx * 640).toFixed(0));
-        lg.setAttribute("y2", (cy + ny * 640).toFixed(0));
+        lg.setAttribute("x1", 0);
+        lg.setAttribute("y1", 0);
+        lg.setAttribute("y2", 0);
+        /* lines are a little fainter towards the left and right edges */
         [
-          [0, 0.1],
+          [0, 0.45],
           [0.3, 1],
           [0.7, 1],
-          [1, 0.1],
+          [1, 0.45],
         ].forEach(function (s) {
           var e = document.createElementNS(NS, "stop");
           e.setAttribute("offset", s[0]);
@@ -3548,98 +3560,85 @@
         });
         df.appendChild(lg);
         svg.appendChild(df);
-        function mk(c) {
-          var e = document.createElementNS(NS, "circle");
-          e.setAttribute("cx", c[0]);
-          e.setAttribute("cy", c[1]);
-          e.setAttribute("r", 0);
+        var rings = [];
+        for (i = 0; i < N; i++) {
+          var e = document.createElementNS(NS, "ellipse");
           e.setAttribute("fill", "none");
           e.setAttribute("stroke", "url(#wvg)");
           e.setAttribute("stroke-width", SW);
           e.setAttribute("stroke-opacity", 0);
           g.appendChild(e);
-          return e;
-        }
-        var LF = [],
-          SF = [],
-          i;
-        for (i = 0; i < NL; i++) LF.push(mk(L));
-        for (i = 0; i < NSM; i++) SF.push(mk(S));
-        function cl(v) {
-          return v < 0 ? 0 : v > 1 ? 1 : v;
+          rings.push(e);
         }
         function es(v) {
-          v = cl(v);
+          v = v < 0 ? 0 : v > 1 ? 1 : v;
           return v * v * (3 - 2 * v);
         }
-        function posL(i, t) {
-          var r = VL * t;
-          return r - i * (GL0 + GL1 * r);
+        /* distance travelled by line i at time t (later lines trail behind the first) */
+        function up(i, t) {
+          var r = V * k * t;
+          return r - i * (G0 * k + G1 * r);
         }
-        var TC = [],
-          RC = [];
-        for (i = 0; i < NL; i++) {
-          var t = 0,
-            f = 99;
-          while (t < 20) {
-            if (posL(i, t) > 0 && VS * t < RMS && posL(i, t) + VS * t >= D) {
-              f = t;
-              break;
-            }
-            t += 0.005;
+        /* half-width of the ellipse for a given distance travelled: starts circular, gets wider and flatter */
+        function rx(d) {
+          return d * (1 + (STRETCH * Math.min(d, 2 * H)) / H);
+        }
+        function size() {
+          W = svg.clientWidth || 1200;
+          H = svg.clientHeight || 600;
+          k = H / 600;
+          svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+          lg.setAttribute("x2", W);
+          for (var i = 0; i < N; i++) {
+            var t = 0;
+            while (t < 30 && up(i, t) < H) t += 0.005;
+            TC[i] = t; /* time at which line i reaches the top edge and turns back */
           }
-          TC.push(f);
-          RC.push(f < 99 ? posL(i, f) : 0);
         }
-        function put(e, r, o) {
-          if (o <= 0.003 || r <= 1) {
+        function put(e, cx, cy, rX, rY, o) {
+          if (o <= 0.003 || rY <= 1) {
             e.setAttribute("stroke-opacity", 0);
             return;
           }
-          e.setAttribute("r", r.toFixed(1));
+          e.setAttribute("cx", cx.toFixed(1));
+          e.setAttribute("cy", cy.toFixed(1));
+          e.setAttribute("rx", rX.toFixed(1));
+          e.setAttribute("ry", rY.toFixed(1));
           e.setAttribute("stroke-opacity", o.toFixed(3));
         }
         function draw(t) {
-          LF.forEach(function (e, i) {
-            var r = posL(i, t),
-              tc = TC[i],
+          rings.forEach(function (e, i) {
+            var d = up(i, t),
               a,
               u;
-            if (r <= 1) {
-              put(e, 0, 0);
+            if (d <= 1) {
+              put(e, 0, 0, 0, 0, 0);
               return;
             }
-            if (t < tc) {
-              a = es(t / 1.4) * (0.5 + 0.5 * es(r / (D * 0.62)));
-              if (tc >= 99) a *= 1 - es((r - D * 0.7) / (D * 0.5));
+            if (t < TC[i]) {
+              /* going up: ellipse centred on the bottom centre */
+              a = es(t / 1.4) * (0.5 + 0.5 * es(d / (H * 0.62)));
+              a *= 0.85 + 0.15 * Math.sin((6.2832 * t) / 1.9 + i * 1.4);
+              put(e, W / 2, H, rx(d), d, OP * a);
             } else {
-              u = (t - tc) / 2.6;
+              /* reflected: the same wave mirrored in the top edge, so it curves the other way and travels back down */
+              u = (t - TC[i]) / FADE;
               if (u >= 1) {
-                put(e, 0, 0);
+                put(e, 0, 0, 0, 0, 0);
                 return;
               }
-              r = RC[i] - BACK * (t - tc);
+              d = H + BACK * k * (t - TC[i]);
               a = 1 - es(u);
+              a *= 0.85 + 0.15 * Math.sin((6.2832 * t) / 1.9 + i * 1.4);
+              put(e, W / 2, -H, rx(d), d, OP * a);
             }
-            a *= 0.85 + 0.15 * Math.sin((6.2832 * t) / 1.9 + i * 1.4);
-            put(e, r, OL * a);
-          });
-          SF.forEach(function (e, j) {
-            var rs = VS * t,
-              r = rs - j * (GS0 + GS1 * rs),
-              a;
-            if (r <= 1 || rs >= RMS) {
-              put(e, 0, 0);
-              return;
-            }
-            a = es(r / 80) * (1 - 0.9 * es(rs / RMS));
-            if (t > TC[0]) a *= 1 - 0.5 * es((t - TC[0]) / 2.2);
-            a *= 0.85 + 0.15 * Math.sin((6.2832 * t) / 2.3 + j * 1.9);
-            put(e, r, OS * a);
           });
         }
+        size();
+        if (window.ResizeObserver) new ResizeObserver(size).observe(svg);
+        addEventListener("resize", size);
         if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          draw(3.9);
+          draw(2.6);
           return;
         }
         var st = null;
