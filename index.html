@@ -1929,6 +1929,16 @@
         padding-top: clamp(48px, 10vh, 120px);
         padding-bottom: clamp(48px, 10vh, 120px);
       }
+      /* ===== HELP TO SMILE: Muskan Clinic (separate from Chetu Kids Club) ===== */
+      .muskan{background:var(--bg2);padding:72px 0}
+      .mlogo{max-width:340px;margin:0 0 30px}
+      .mlogo img{width:100%;height:auto}
+      @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mlogo{background:#fdf6e8;padding:14px 22px}}
+      :root[data-theme="dark"] .mlogo{background:#fdf6e8;padding:14px 22px}
+      /* Muskan: smaller photo */
+      @media(min-width:901px){.muskan .cleft{grid-template-columns:minmax(0,280px) 1fr;gap:64px}}
+      .muskan .cimg{max-width:280px}
+    
     </style>
   </head>
 
@@ -3030,7 +3040,7 @@
             <div class="two cleft">
               <img class="cimg" src="assets/projects/help-to-smile/muskan-clinic/cleft-dental-chair.jpeg" alt="Dental team and doctors examining a child in a dental chair at a clinic" loading="lazy" />
               <div class="article">
-                <div class="mlogo"><img src="assets/projects/help-to-smile/muskan-clinic/muskan-clinic-logo.png" alt="Muskan Clinic (मुस्कान क्लिनिक) logo" /></div>
+                <div class="mlogo"><img src="assets/projects/help-to-smile/muskan-clinic/muskan-clinic-logo.png" alt="Muskan Clinic logo" /></div>
                 <p style="margin: 0; color: var(--mut)">
                   Through our partnership with the Muskan Clinic at
                   <a class="lnk" href="https://nepalitimes.com/removing-scars" target="_blank" rel="noopener">Kirtipur Hospital</a>, we provide
