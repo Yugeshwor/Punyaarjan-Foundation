@@ -1,0 +1,3790 @@
+<!doctype html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Punyaarjan Foundation</title>
+    <meta name="description" content="In giving, you receive." />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #fdf6e8;
+        --bg2: #fbefd6;
+        --card: #fffaf0;
+        --tx: #25190f;
+        --mut: #6b5a47;
+        --gold: #dfa514;
+        --goldtx: #b98200;
+        --line: #ecd9a6;
+        --btn: #25190f;
+        --ink: #2a1d10;
+        --dot: rgba(190, 140, 30, 0.14);
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #17120b;
+          --bg2: #1f1810;
+          --card: #211a11;
+          --tx: #f5ead6;
+          --mut: #bcae96;
+          --gold: #e8b02a;
+          --goldtx: #eab43c;
+          --line: #44361f;
+          --btn: #f5ead6;
+          --ink: #0e0a05;
+          --dot: rgba(232, 176, 42, 0.09);
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #17120b;
+        --bg2: #1f1810;
+        --card: #211a11;
+        --tx: #f5ead6;
+        --mut: #bcae96;
+        --gold: #e8b02a;
+        --goldtx: #eab43c;
+        --line: #44361f;
+        --btn: #f5ead6;
+        --ink: #0e0a05;
+        --dot: rgba(232, 176, 42, 0.09);
+        color-scheme: dark;
+      }
+      html {
+        scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 84px);
+        scroll-behavior: smooth;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--tx);
+        font:
+          300 17px/1.75 Poppins,
+          system-ui,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: env(safe-area-inset-top, 0px);
+        background: var(--bg);
+        z-index: 10;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 300;
+        line-height: 1.12;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+      a {
+        color: inherit;
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: auto;
+        padding: 0 28px;
+      }
+      header {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 9;
+        background: var(--bg);
+        border-bottom: 1px solid transparent;
+      }
+      .bar {
+        max-width: 1180px;
+        margin: auto;
+        padding: 16px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .bar img {
+        height: 44px;
+        width: auto;
+      }
+      nav {
+        display: flex;
+        gap: 38px;
+        font-size: 15px;
+        font-weight: 400;
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--mut);
+      }
+      nav a:hover {
+        color: var(--goldtx);
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--gold);
+        color: #25190f;
+        padding: 15px 30px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        transition: transform 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn.sm {
+        padding: 11px 26px;
+        font-size: 15px;
+      }
+      .btn.ghost {
+        background: transparent;
+        border: 1px solid var(--line);
+        color: var(--tx);
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(900px 500px at 85% 0, rgba(223, 165, 20, 0.18), transparent 60%),
+          radial-gradient(700px 500px at 0 100%, rgba(200, 60, 60, 0.07), transparent 60%), var(--bg2);
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(var(--dot) 1px, transparent 1.2px) 0 0/5px 5px;
+        pointer-events: none;
+      }
+      .hero .wrap {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 48px;
+        align-items: center;
+        padding-top: 76px;
+        padding-bottom: 96px;
+      }
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 22px;
+        font-size: 14px;
+        color: var(--mut);
+        margin-bottom: 34px;
+      }
+      .tag svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--gold);
+      }
+      .hero h1 {
+        font-size: clamp(38px, 6vw, 78px);
+        margin-bottom: 30px;
+      }
+      em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .hero p {
+        font-size: 19px;
+        color: var(--mut);
+        max-width: 560px;
+        margin: 0 0 38px;
+      }
+      .btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .pics {
+        position: relative;
+        height: 440px;
+      }
+      .pics img {
+        position: absolute;
+        object-fit: cover;
+        border-radius: 28px;
+        box-shadow: 0 30px 60px -20px rgba(60, 35, 0, 0.35);
+        border: 6px solid var(--card);
+      }
+      .pics .a {
+        width: 78%;
+        height: 300px;
+        right: 0;
+        top: 0;
+        transform: rotate(2.5deg);
+      }
+      .pics .b {
+        width: 60%;
+        height: 230px;
+        left: 0;
+        bottom: 0;
+        transform: rotate(-3deg);
+      }
+      .eyebrow {
+        font-size: 14px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--goldtx);
+        margin-bottom: 26px;
+        font-weight: 400;
+      }
+      section {
+        padding: 110px 0;
+      }
+      .concept h2 {
+        font-size: clamp(32px, 5vw, 58px);
+        max-width: 960px;
+        margin-bottom: 60px;
+      }
+      .cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 64px;
+        align-items: start;
+      }
+      .cols p,
+      .read p {
+        margin: 0 0 1.3em;
+        color: var(--mut);
+      }
+      .cols p b {
+        font-weight: 500;
+        color: var(--tx);
+      }
+      .quote {
+        font-size: clamp(22px, 3vw, 30px);
+        line-height: 1.4;
+        color: var(--tx);
+        border-left: 2px solid var(--gold);
+        padding-left: 26px;
+        margin: 0 0 1.4em !important;
+      }
+      .name {
+        background: var(--bg2);
+        text-align: center;
+      }
+      .name h2 {
+        font-size: clamp(30px, 4.5vw, 50px);
+        margin-bottom: 44px;
+      }
+      .name .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 32px;
+        padding: 36px;
+        max-width: 860px;
+        margin: auto;
+      }
+      .punch {
+        background: var(--ink);
+        color: #f5ead6;
+        text-align: center;
+        padding: 96px 0;
+      }
+      .punch h2 {
+        font-size: clamp(28px, 4.5vw, 52px);
+        margin-bottom: 18px;
+      }
+      .punch p {
+        margin: 0;
+        color: #d8c8a8;
+        font-size: 19px;
+      }
+      .read {
+        max-width: 760px;
+        margin: auto;
+      }
+      .fc {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid var(--line);
+        border-radius: 36px;
+        overflow: hidden;
+        background: var(--card);
+        margin-bottom: 36px;
+      }
+      .fc:nth-child(even) .im {
+        order: 2;
+      }
+      .fc .im {
+        min-height: 380px;
+      }
+      .fc img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .fc .tx {
+        padding: 56px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .lbl {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 14px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--mut);
+        margin-bottom: 30px;
+      }
+      .ico {
+        width: 58px;
+        height: 58px;
+        border: 1px solid var(--line);
+        background: var(--bg2);
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+      }
+      .ico svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--gold);
+        fill: none;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .fc h3 {
+        font-size: clamp(28px, 3.4vw, 42px);
+        margin-bottom: 22px;
+      }
+      .fc p {
+        margin: 0;
+        color: var(--mut);
+      }
+      .focus h2 {
+        font-size: clamp(32px, 5vw, 58px);
+        margin-bottom: 56px;
+      }
+      .join {
+        background: var(--bg2);
+        text-align: center;
+      }
+      .join h2 {
+        font-size: clamp(30px, 4.5vw, 52px);
+        margin-bottom: 24px;
+      }
+      .join p {
+        max-width: 640px;
+        margin: 0 auto 34px;
+        color: var(--mut);
+      }
+      footer {
+        background: var(--bg);
+        border-top: 1px solid var(--line);
+        padding: 72px 0 32px;
+      }
+      .fg {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 56px;
+      }
+      .fg img {
+        height: 50px;
+        width: auto;
+        margin-bottom: 26px;
+      }
+      .fg p {
+        color: var(--mut);
+        margin: 0;
+        max-width: 420px;
+      }
+      .fg h4 {
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--mut);
+        margin: 0 0 24px;
+      }
+      .fg a {
+        display: block;
+        text-decoration: none;
+        margin-bottom: 12px;
+      }
+      .fg a:hover {
+        color: var(--goldtx);
+      }
+      .copy {
+        border-top: 1px solid var(--line);
+        padding-top: 28px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 14px;
+        color: var(--mut);
+      }
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+        }
+        .hero .wrap,
+        .cols,
+        .fc,
+        .fg {
+          grid-template-columns: 1fr;
+        }
+        .pics {
+          height: 360px;
+        }
+        .fc:nth-child(even) .im {
+          order: 0;
+        }
+        .fc .im {
+          min-height: 260px;
+        }
+        .fc .tx {
+          padding: 36px 28px;
+        }
+        section {
+          padding: 72px 0;
+        }
+        .hero .wrap {
+          padding-top: 44px;
+          padding-bottom: 64px;
+        }
+      }
+      .page {
+        display: none;
+      }
+      .page.on {
+        display: block;
+      }
+      nav a.cur {
+        color: var(--goldtx);
+      }
+      .phead {
+        background: var(--bg2);
+        padding: 84px 0 72px;
+        position: relative;
+      }
+      .phead h1 {
+        font-size: clamp(38px, 6vw, 72px);
+      }
+      .phead .eyebrow {
+        margin-bottom: 22px;
+      }
+      .tease {
+        text-align: center;
+      }
+      .tease h2 {
+        font-size: clamp(30px, 4.5vw, 54px);
+        max-width: 860px;
+        margin: 0 auto 28px;
+      }
+      .tease p {
+        max-width: 720px;
+        margin: 0 auto 34px;
+        color: var(--mut);
+      }
+      .punch em {
+        color: var(--gold);
+      }
+      .focus {
+        background: var(--bg2);
+      }
+      .article p {
+        font-size: 18px;
+      }
+      .article .quote {
+        font-size: clamp(24px, 3.2vw, 32px);
+      }
+      .article .idea {
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 300;
+        line-height: 1.2;
+        color: var(--tx);
+        margin: 2em 0 0.4em;
+        letter-spacing: -0.02em;
+      }
+      .article .sub {
+        font-size: clamp(28px, 4vw, 40px);
+        margin: 2em 0 0.7em;
+      }
+      .mean {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto 2em;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .mean {
+          filter: invert(1) hue-rotate(180deg);
+        }
+      }
+      :root[data-theme="dark"] .mean {
+        filter: invert(1) hue-rotate(180deg);
+      }
+      #home .tease .eyebrow,
+      #home .join .eyebrow {
+        font-size: clamp(20px, 2.6vw, 28px);
+        letter-spacing: 0.22em;
+        margin-bottom: 30px;
+      }
+      .focus {
+        background: var(--tan);
+      }
+      :root {
+        --tan: #f6e5b8;
+        --red: #9c0f0c;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --tan: #241b0e;
+          --red: #f0766f;
+        }
+      }
+      :root[data-theme="dark"] {
+        --tan: #241b0e;
+        --red: #f0766f;
+      }
+      .focus h2 {
+        margin-bottom: 72px;
+      }
+      .pj {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+        text-align: left;
+        margin-bottom: 88px;
+      }
+      .pj:last-child {
+        margin-bottom: 0;
+      }
+      .pj img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .pj h3 {
+        font-size: clamp(30px, 3.8vw, 48px);
+        color: var(--red);
+        margin-bottom: 28px;
+      }
+      .pj p {
+        margin: 0;
+        font-size: 19px;
+        line-height: 1.7;
+        color: var(--tx);
+      }
+      .pj.rev .im {
+        order: 2;
+      }
+      .pj.rev .tx {
+        text-align: right;
+      }
+      @media (max-width: 900px) {
+        .pj {
+          grid-template-columns: 1fr;
+          gap: 28px;
+          margin-bottom: 56px;
+        }
+        .pj.rev .im {
+          order: 0;
+        }
+        .pj.rev .tx {
+          text-align: left;
+        }
+      }
+      .learn {
+        display: inline-block;
+        margin: 34px 14px 0 0;
+        border: 2px solid var(--gold);
+        padding: 11px 26px;
+        color: var(--goldtx);
+        font-weight: 500;
+        font-size: 16px;
+        text-decoration: none;
+        border-radius: 0;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .learn:hover {
+        background: var(--gold);
+        color: #25190f;
+      }
+      .pj.rev .learn {
+        margin-right: 0;
+      }
+      .lnk {
+        color: var(--goldtx);
+        text-underline-offset: 3px;
+      }
+      .pts {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .pts li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 1.3em;
+        color: var(--mut);
+        font-size: 18px;
+      }
+      .pts li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.7em;
+        width: 10px;
+        height: 10px;
+        background: var(--gold);
+        border-radius: 50%;
+      }
+      .cl {
+        border-top: 1px solid var(--line);
+      }
+      .cl:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      .cl summary {
+        list-style: none;
+        cursor: pointer;
+        display: flex;
+        align-items: baseline;
+        gap: 22px;
+        padding: 26px 44px 26px 0;
+        position: relative;
+      }
+      .cl summary::-webkit-details-marker {
+        display: none;
+      }
+      .cl summary::after {
+        content: "+";
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        font-weight: 300;
+        color: var(--goldtx);
+        line-height: 1;
+      }
+      .cl[open] summary::after {
+        content: "−";
+      }
+      .rn {
+        flex: none;
+        font-size: 18px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--goldtx);
+        min-width: 92px;
+      }
+      .cn {
+        font-size: clamp(19px, 2.4vw, 26px);
+        line-height: 1.3;
+      }
+      .cb {
+        padding: 0 0 38px;
+      }
+      .cb p {
+        margin: 0 0 0.9em;
+        color: var(--mut);
+      }
+      .cb .cm {
+        color: var(--tx);
+      }
+      .cb .cd {
+        color: var(--goldtx);
+        font-weight: 500;
+      }
+      .galw {
+        position: relative;
+        margin-top: 26px;
+      }
+      .gal {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 12px;
+        scrollbar-width: thin;
+      }
+      .gal img {
+        flex: none;
+        height: 300px;
+        width: auto;
+        max-width: 86vw;
+        scroll-snap-align: start;
+        border-radius: 0;
+        object-fit: cover;
+      }
+      .gb {
+        position: absolute;
+        top: calc(50% - 18px);
+        width: 44px;
+        height: 44px;
+        border: 0;
+        background: rgba(37, 25, 15, 0.72);
+        color: #fff;
+        font-size: 28px;
+        line-height: 1;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        padding: 0 0 4px;
+      }
+      .gb:hover {
+        background: var(--gold);
+        color: #25190f;
+      }
+      .gb.l {
+        left: 0;
+      }
+      .gb.r {
+        right: 0;
+      }
+      @media (max-width: 700px) {
+        .cl summary {
+          flex-direction: column;
+          gap: 6px;
+        }
+        .gal img {
+          height: 220px;
+        }
+      }
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .vid {
+        position: relative;
+      }
+      .vid iframe {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        border: 0;
+        background: #000;
+      }
+      .yt {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 14px;
+        color: var(--goldtx);
+        text-underline-offset: 3px;
+      }
+      .ct {
+        font-size: clamp(38px, 6vw, 68px);
+        line-height: 1.1;
+        margin: 0 0 30px;
+        padding-top: 26px;
+        position: relative;
+      }
+      .ct::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 84px;
+        height: 5px;
+        background: var(--gold);
+      }
+      .ct em {
+        color: var(--gold);
+      }
+      @media (max-width: 900px) {
+        .two {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+      .vcard {
+        display: block;
+        position: relative;
+        margin-top: 40px;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        background: #000;
+        text-decoration: none;
+      }
+      .vcard img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.78;
+        transition:
+          transform 0.5s,
+          opacity 0.3s;
+      }
+      .vcard:hover img {
+        transform: scale(1.03);
+        opacity: 0.65;
+      }
+      .play {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 92px;
+        height: 92px;
+        margin: -46px 0 0 -46px;
+        border-radius: 50%;
+        background: var(--gold);
+        display: grid;
+        place-items: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+      .play svg {
+        width: 42px;
+        height: 42px;
+        fill: #25190f;
+        margin-left: 5px;
+      }
+      .vcap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 44px 26px 20px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 400;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+      }
+      .eq {
+        padding: 30px 0 50px;
+        text-align: center;
+      }
+      .eqs {
+        max-width: 900px;
+        margin: 0 auto;
+        font-size: clamp(26px, 3.8vw, 46px);
+        line-height: 1.3;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        color: var(--tx);
+      }
+      .eqs em {
+        color: var(--gold);
+      }
+      .maps {
+        padding: 0 0 70px;
+      }
+      .maps .wrap {
+        max-width: 1100px;
+      }
+      .mp {
+        margin-bottom: 64px;
+      }
+      .mp:last-child {
+        margin-bottom: 0;
+      }
+      .mt {
+        font-size: clamp(22px, 2.8vw, 32px);
+        line-height: 1.25;
+        margin-bottom: 26px;
+      }
+      .mapbox img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .lg {
+        list-style: none;
+        padding: 0;
+        margin: 26px 0 0;
+        display: grid;
+        gap: 10px;
+      }
+      .lg.two {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 48px;
+      }
+      .lg li {
+        display: flex;
+        gap: 16px;
+        align-items: baseline;
+        color: var(--tx);
+        font-size: 17px;
+        line-height: 1.45;
+      }
+      .lg b {
+        flex: none;
+        min-width: 30px;
+        color: #e31b36;
+        font-weight: 600;
+        font-size: 19px;
+      }
+      .mm {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .mm .mt {
+        margin-top: 0;
+      }
+      .mm .mapbox {
+        max-width: 360px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .mapbox {
+          background: #fdf6e8;
+          padding: 18px;
+        }
+      }
+      :root[data-theme="dark"] .mapbox {
+        background: #fdf6e8;
+        padding: 18px;
+      }
+      @media (max-width: 800px) {
+        .lg.two {
+          grid-template-columns: 1fr;
+        }
+        .mm {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .mm .mapbox {
+          max-width: 300px;
+          margin: 0 auto;
+        }
+      }
+      .mapsw {
+        max-width: 900px;
+        margin-top: 34px;
+        margin-bottom: 48px;
+      }
+      .mapsw .mp {
+        margin-bottom: 44px;
+      }
+      .mapbox.np {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .mapsw .mm {
+        grid-template-columns: minmax(150px, 220px) 1fr;
+        gap: 44px;
+      }
+      .mapsw .mm .mapbox {
+        max-width: 220px;
+      }
+      @media (max-width: 800px) {
+        .mapsw .mm {
+          grid-template-columns: 1fr;
+        }
+        .mapsw .mm .mapbox {
+          margin: 0 auto;
+        }
+      }
+      .mapsw {
+        max-width: 760px;
+      }
+      .mt.below {
+        margin: 26px 0 0;
+        text-align: center;
+      }
+      .mt.below + .lg {
+        margin-top: 18px;
+      }
+      .lg {
+        gap: 5px;
+      }
+      .lg.two {
+        gap: 5px 40px;
+      }
+      .lg li {
+        line-height: 1.3;
+      }
+      @media (max-width: 800px) {
+        .mt.below {
+          text-align: left;
+        }
+      }
+      .vcard img {
+        opacity: 0.95;
+      }
+      .vcard:hover img {
+        opacity: 0.8;
+      }
+      .sancho {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: #5a0a01;
+        color: #fff;
+      }
+      .st {
+        padding: 72px max(28px, 5vw);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      .st p {
+        margin: 0 0 34px;
+        font-size: clamp(20px, 2.1vw, 27px);
+        line-height: 1.85;
+        font-weight: 300;
+        color: #fff;
+      }
+      .st b {
+        font-weight: 600;
+      }
+      .sl {
+        color: #fff;
+        font-size: clamp(20px, 2vw, 26px);
+        text-decoration: none;
+        border-bottom: 2px solid #fff;
+        padding-bottom: 2px;
+        line-height: 1.3;
+      }
+      .sl:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+      }
+      .sv {
+        position: relative;
+        display: block;
+        min-height: 360px;
+        overflow: hidden;
+        background: #000;
+        text-decoration: none;
+      }
+      .sv img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .sv:hover img {
+        transform: scale(1.03);
+      }
+      @media (max-width: 800px) {
+        .sancho {
+          grid-template-columns: 1fr;
+        }
+        .st {
+          padding: 48px 28px;
+        }
+        .sv {
+          min-height: 0;
+          aspect-ratio: 16/9;
+        }
+      }
+      .quote {
+        --qb: #fff0cc;
+        background: var(--qb);
+        margin: 100px 0 40px;
+        padding: 48px 0;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .quote {
+          --qb: #2b2214;
+        }
+      }
+      :root[data-theme="dark"] .quote {
+        --qb: #2b2214;
+      }
+      .qg {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 64px;
+        align-items: center;
+      }
+      .qt {
+        margin: 0;
+        text-align: right;
+      }
+      .qline {
+        display: block;
+        width: 140px;
+        height: 3px;
+        background: var(--red);
+        margin: 0 0 30px auto;
+      }
+      .qt p {
+        margin: 0 0 22px;
+        font-size: clamp(24px, 3vw, 38px);
+        line-height: 1.5;
+        font-weight: 300;
+        letter-spacing: -0.01em;
+        color: var(--tx);
+      }
+      .qt cite {
+        font-style: normal;
+        font-size: 17px;
+        color: var(--mut);
+        letter-spacing: 0.02em;
+      }
+      .book {
+        display: block;
+        margin: -150px 0;
+        text-decoration: none;
+        color: var(--mut);
+        text-align: center;
+        font-size: 15px;
+      }
+      .book img {
+        width: 100%;
+        height: auto;
+        display: block;
+        box-shadow: 0 26px 50px -18px rgba(60, 35, 0, 0.45);
+        transition: transform 0.3s;
+      }
+      .book:hover img {
+        transform: translateY(-6px);
+      }
+      .book span {
+        display: inline-block;
+        margin-top: 16px;
+        color: var(--goldtx);
+        font-weight: 500;
+      }
+      @media (max-width: 800px) {
+        .quote {
+          margin: 60px 0 20px;
+          padding: 44px 0 0;
+          overflow: hidden;
+        }
+        .qg {
+          grid-template-columns: 1fr;
+          gap: 34px;
+        }
+        .qt {
+          text-align: left;
+        }
+        .qline {
+          margin-left: 0;
+        }
+        .book {
+          margin: 0 auto -90px;
+          max-width: 260px;
+        }
+        .book span {
+          display: none;
+        }
+      }
+
+      .quote {
+        background: none;
+        margin: 80px 0 30px;
+        padding: 0;
+        overflow: visible;
+        position: relative;
+      }
+      .quote::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 60px;
+        bottom: 60px;
+        background: var(--qb);
+      }
+      .qg {
+        position: relative;
+        grid-template-columns: 1fr 320px;
+        align-items: center;
+      }
+      .qt p {
+        font-size: clamp(22px, 2.6vw, 34px);
+      }
+      .book {
+        margin: 0;
+        width: 320px;
+      }
+      @media (max-width: 800px) {
+        .quote {
+          margin: 50px 0 20px;
+          padding-top: 44px;
+          overflow: visible;
+        }
+        .quote::before {
+          top: 0;
+          bottom: 200px;
+        }
+        .qg {
+          grid-template-columns: 1fr;
+        }
+        .book {
+          margin: 0 auto;
+          width: 260px;
+          max-width: 78%;
+        }
+        .book span {
+          display: inline-block;
+        }
+      }
+      .st {
+        padding: 72px 28px 72px max(28px, calc((100vw - 1180px) / 2 + 28px));
+      }
+      .st p {
+        font-size: 18px;
+        line-height: 1.85;
+      }
+      .sl {
+        font-size: 17px;
+      }
+      @media (max-width: 800px) {
+        .st {
+          padding: 48px 28px;
+        }
+      }
+      .article .pull {
+        text-align: center;
+        font-style: italic;
+        font-weight: 300;
+        font-size: clamp(22px, 2.8vw, 30px);
+        line-height: 1.45;
+        color: var(--goldtx);
+        padding: 26px 10px;
+        margin: 1.8em 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .article .idea {
+        font-size: clamp(22px, 3vw, 32px);
+        margin: 1.8em 0 0.6em;
+      }
+      .article .mean {
+        max-width: 500px;
+      }
+      .article .invite {
+        background: var(--bg2);
+        color: var(--tx);
+        padding: 24px 28px;
+        margin-top: 2em;
+      }
+      .hero .wrap.hc {
+        display: block;
+        text-align: center;
+        padding-top: 120px;
+        padding-bottom: 120px;
+      }
+      .hc h1 {
+        font-size: clamp(46px, 9vw, 110px);
+        line-height: 1.05;
+        margin: 0 0 40px;
+      }
+      .hero .hc .mission {
+        font-size: clamp(22px, 3vw, 36px);
+        line-height: 1.5;
+        color: var(--tx);
+        font-weight: 300;
+        max-width: 880px;
+        margin: 0 auto 52px;
+      }
+      .hc .mission::before {
+        content: "";
+        display: block;
+        width: 72px;
+        height: 3px;
+        background: var(--gold);
+        margin: 0 auto 36px;
+      }
+      .hc .btns {
+        justify-content: center;
+      }
+      @media (max-width: 800px) {
+        .hero .wrap.hc {
+          padding-top: 72px;
+          padding-bottom: 72px;
+        }
+      }
+      .hero {
+        background: linear-gradient(135deg, #c48419 0%, #aa6b0d 100%);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .hero {
+          background: linear-gradient(135deg, #8f5c0d 0%, #6c4208 100%);
+        }
+      }
+      :root[data-theme="dark"] .hero {
+        background: linear-gradient(135deg, #8f5c0d 0%, #6c4208 100%);
+      }
+      .hero::before {
+        background: radial-gradient(rgba(255, 240, 200, 0.14) 1px, transparent 1.2px) 0 0/5px 5px;
+      }
+      .rip {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .diya {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 26px;
+        display: block;
+      }
+      .hero .hc h1,
+      .hero .hc h1 em {
+        color: #fff8e8;
+      }
+      .hero .hc .mission {
+        color: #fff6df;
+        font-weight: 400;
+      }
+      .hero .hc .mission em {
+        color: #fff;
+        font-weight: 500;
+      }
+      .hc .mission::before {
+        background: rgba(255, 246, 223, 0.8);
+      }
+      .hero .btn {
+        background: #fff6df;
+        color: #4a2c05;
+      }
+      .hero .btn.ghost {
+        background: transparent;
+        color: #fff6df;
+        border: 1px solid rgba(255, 246, 223, 0.65);
+      }
+      .hero .btn.ghost:hover {
+        background: rgba(255, 246, 223, 0.16);
+      }
+      .hero::before {
+        display: none;
+      }
+      .hc .mission::before {
+        display: none;
+      }
+      .diya {
+        display: none;
+      }
+      .chetu {
+        background: #cdcdcd;
+        color: #111;
+      }
+      .chtop {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 48px;
+        align-items: center;
+        padding: 64px 28px 64px max(28px, calc((100vw - 1180px) / 2 + 28px));
+      }
+      .chtop p {
+        margin: 0;
+        font-size: clamp(18px, 1.9vw, 24px);
+        line-height: 1.8;
+        font-weight: 300;
+        color: #111;
+      }
+      .chtop b {
+        font-weight: 700;
+      }
+      .chtop img {
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+        justify-self: center;
+      }
+      .chph {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .chph img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        display: block;
+      }
+      .whoq {
+        --qb: #fff0cc;
+        background: none;
+        padding: 72px 0;
+        text-align: center;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .whoq {
+          --qb: #2b2214;
+        }
+      }
+      :root[data-theme="dark"] .whoq {
+        --qb: #2b2214;
+      }
+      .whoq p {
+        max-width: 860px;
+        margin: 0 auto 22px;
+        font-size: clamp(24px, 3.4vw, 42px);
+        line-height: 1.4;
+        font-weight: 300;
+        letter-spacing: -0.01em;
+        color: var(--tx);
+      }
+      .whoq cite {
+        font-style: normal;
+        font-size: 17px;
+        color: var(--mut);
+      }
+      @media (max-width: 800px) {
+        .chtop {
+          grid-template-columns: 1fr;
+          padding: 44px 28px;
+          gap: 28px;
+        }
+        .chtop img {
+          max-width: 260px;
+        }
+        .chph {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .chetu {
+        background: #250702;
+        color: #fff6df;
+      }
+      .chtop p {
+        font-size: 18px;
+        line-height: 1.85;
+        font-weight: 300;
+        color: #fff6df;
+      }
+      .chtop b {
+        color: #fff;
+        font-weight: 600;
+      }
+      .chtx .sl {
+        display: inline-block;
+        margin-top: 30px;
+        font-size: 17px;
+      }
+      .cimg {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        display: block;
+      }
+      @media (min-width: 901px) {
+        .cleft {
+          grid-template-columns: minmax(0, 400px) 1fr;
+          gap: 64px;
+          align-items: center;
+        }
+      }
+      @media (max-width: 900px) {
+        .cimg {
+          max-width: 420px;
+        }
+      }
+      .sup-intro {
+        font-size: 19px;
+        color: var(--mut);
+        margin: 0 0 44px;
+      }
+      .sform {
+        display: grid;
+        gap: 26px;
+      }
+      .frow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+      }
+      .sform label,
+      .sform legend {
+        display: block;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--tx);
+      }
+      .sform .opt {
+        font-weight: 300;
+        color: var(--mut);
+      }
+      .sform input[type="text"],
+      .sform input[type="email"],
+      .sform input[type="tel"],
+      .sform textarea {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        padding: 14px 16px;
+        font:
+          300 17px/1.5 Poppins,
+          system-ui,
+          sans-serif;
+        color: var(--tx);
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 0;
+      }
+      .sform textarea {
+        resize: vertical;
+      }
+      .sform input:focus,
+      .sform textarea:focus {
+        outline: 2px solid var(--gold);
+        outline-offset: 1px;
+      }
+      .sform fieldset {
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+      .sform legend {
+        padding: 0;
+        margin-bottom: 12px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .chip {
+        position: relative;
+        cursor: pointer;
+      }
+      .chip input {
+        position: absolute;
+        opacity: 0;
+        inset: 0;
+      }
+      .chip span {
+        display: inline-block;
+        padding: 11px 20px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--tx);
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+      }
+      .chip:hover span {
+        border-color: var(--gold);
+      }
+      .chip input:checked + span {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: #25190f;
+      }
+      .chip input:focus-visible + span {
+        outline: 2px solid var(--goldtx);
+        outline-offset: 2px;
+      }
+      .fact {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        flex-wrap: wrap;
+      }
+      .fact .btn {
+        border: 0;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      #fnote {
+        font-size: 15px;
+        color: var(--mut);
+        max-width: 440px;
+      }
+      #fnote.err {
+        color: #c0282d;
+      }
+      @media (max-width: 700px) {
+        .frow {
+          grid-template-columns: 1fr;
+        }
+      }
+      .pts li b {
+        color: var(--tx);
+        font-weight: 500;
+      }
+      .rem {
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.4;
+        font-weight: 300;
+        color: var(--tx);
+        margin: 1.6em 0 0;
+      }
+      .whoq .lnk {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .posters {
+        padding: 80px 0 70px;
+      }
+      .pfs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 44px 36px;
+      }
+      .pf {
+        margin: 0;
+        max-width: 300px;
+      }
+      .pf.w {
+        max-width: 480px;
+      }
+      .pf a {
+        display: block;
+        line-height: 0;
+      }
+      .pf img {
+        height: 340px;
+        width: auto;
+        max-width: 100%;
+        display: block;
+        box-shadow: 0 22px 44px -20px rgba(60, 35, 0, 0.45);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .pf a:hover img {
+        transform: translateY(-6px);
+      }
+      .pf figcaption {
+        margin-top: 18px;
+        display: grid;
+        gap: 2px;
+        font-size: 15px;
+        color: var(--mut);
+      }
+      .pf figcaption b {
+        font-weight: 500;
+        font-size: 17px;
+        color: var(--tx);
+      }
+      .pf figcaption em {
+        font-style: normal;
+        color: var(--goldtx);
+        font-weight: 500;
+        margin-top: 4px;
+      }
+      @media (max-width: 700px) {
+        .pf img {
+          height: 260px;
+        }
+      }
+      /* Punyaarjan meaning graphic: three separately cropped images placed by percentage.
+         Wordmark = centre, .pun = upper-left label, .aar = lower-right label.
+         To nudge a piece, change its left / top / width (all % of the graphic's box). */
+      .msc {
+        position: relative;
+        width: min(720px, 100%);
+        aspect-ratio: 1318/708;
+        margin: 0 auto 48px;
+      }
+      .msc img {
+        position: absolute;
+        height: auto;
+        left: 6%;
+        top: 27.5%;
+        width: 87.7%;
+      }
+      .msc .pun {
+        left: 4%;
+        top: 9%;
+        width: 54.5%;
+      }
+      .msc .aar {
+        left: 49.2%;
+        top: 67%;
+        width: 44.5%;
+      }
+      .msc .pun,
+      .msc .aar {
+        opacity: 0;
+        will-change: opacity, transform;
+      }
+      .article .mean {
+        max-width: 640px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .msc img,
+        :root:not([data-theme="light"]) .mean {
+          filter: invert(1) hue-rotate(180deg);
+        }
+      }
+      :root[data-theme="dark"] .msc img,
+      :root[data-theme="dark"] .mean {
+        filter: invert(1) hue-rotate(180deg);
+      }
+      .article .mean {
+        max-width: 440px;
+      }
+      .bx {
+        display: inline-block;
+        padding: 12px 28px;
+        border: 2px solid var(--gold);
+        background: transparent;
+        color: var(--goldtx);
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.4;
+        text-decoration: none;
+        border-radius: 0;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .bx:hover {
+        background: var(--gold);
+        color: #25190f;
+      }
+      .hero .bx {
+        border-color: #fff6df;
+        color: #fff6df;
+      }
+      .hero .bx:hover {
+        background: #fff6df;
+        color: #4a2c05;
+      }
+      .hc .btns {
+        gap: 16px;
+      }
+      .punch .bx {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .punch .bx:hover {
+        background: var(--gold);
+        color: #25190f;
+      }
+      .brow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 8px;
+      }
+      .brow .learn {
+        margin: 26px 0 0;
+      }
+      .substack-embed {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+      }
+      .substack-embed iframe {
+        width: 100%;
+        max-width: 360px;
+        height: 320px;
+        border: 0;
+        background: transparent;
+        display: block;
+      }
+      .plain-link {
+        text-decoration: none;
+        color: inherit;
+      }
+      .plain-link:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+      /* =====================================================================
+   KNOWLEDGE PHILANTHROPY + RESOURCES (new)
+   ===================================================================== */
+      img:not([src]) {
+        visibility: hidden;
+      }
+      .phead .pdesc {
+        font-size: 19px;
+        color: var(--mut);
+        max-width: 680px;
+        margin: 26px 0 0;
+      }
+      /* Resources: one .rsec per topic */
+      .rsec {
+        padding: 80px 0 90px;
+      }
+      .rsec + .rsec {
+        border-top: 1px solid var(--line);
+      }
+      .rsec .ct {
+        margin-bottom: 22px;
+      }
+      .rdesc {
+        max-width: 720px;
+        margin: 0 0 64px;
+        font-size: 18px;
+        color: var(--mut);
+      }
+      .rsec .pfs {
+        gap: 56px 44px;
+      }
+      /* Knowledge philanthropy: one .ev per event */
+      .ev-list {
+        margin-top: 44px;
+      }
+      .ev-body,
+      .galw {
+        min-width: 0;
+        max-width: 100%;
+      }
+      .ev {
+        display: grid;
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 20px 56px;
+        padding: 56px 0;
+        border-top: 1px solid var(--line);
+      }
+      .ev:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      .ev-meta {
+        line-height: 1.5;
+      }
+      .ev-meta .when {
+        display: block;
+        font-size: 19px;
+        font-weight: 500;
+        color: var(--goldtx);
+      }
+      .ev-meta .where {
+        display: block;
+        margin-top: 6px;
+        font-size: 14px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--mut);
+      }
+      .ev h3 {
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.2;
+        margin-bottom: 24px;
+      }
+      .ev p {
+        margin: 0 0 1.1em;
+        font-size: 18px;
+        color: var(--mut);
+      }
+      .ev .vcard,
+      .ev .galw {
+        margin-top: 32px;
+      }
+      .vcard.plain {
+        background: linear-gradient(135deg, #5a0a01, #250702);
+      }
+      @media (max-width: 800px) {
+        .ev {
+          grid-template-columns: minmax(0, 1fr);
+          padding: 40px 0;
+        }
+      }
+    
+      /* =====================================================================
+         MOBILE MENU (hamburger) + STORIES OF ACHIEVEMENT
+         ===================================================================== */
+      .menu-btn { display: none; }
+      .mhome { display: none; }
+      .rbook { display: grid; grid-template-columns: minmax(0, 300px) 1fr; gap: 56px; align-items: center; }
+      .rbook-text p { margin: 0 0 1.1em; font-size: 18px; color: var(--mut); max-width: 560px; }
+      @media (max-width: 900px) {
+        .bar { gap: 14px; }
+        .bar .bx { margin-left: auto; padding: 9px 18px; font-size: 14px; white-space: nowrap; }
+        .menu-btn { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 0 11px; background: none; border: 1px solid var(--line); cursor: pointer; }
+        .menu-btn span { display: block; flex: none; width: 100%; height: 2px; background: var(--tx, currentColor); transition: transform .2s, opacity .2s; }
+        header.open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        header.open .menu-btn span:nth-child(2) { opacity: 0; }
+        header.open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        header.open nav { display: flex; flex-direction: column; gap: 0; position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); padding: 6px 28px 16px; border-bottom: 1px solid var(--line); box-shadow: 0 14px 24px rgba(0, 0, 0, .08); font-size: 17px; }
+        header.open nav a { display: block; padding: 14px 0; border-top: 1px solid var(--line); }
+        header.open nav a:first-child { border-top: 0; }
+        .mhome { display: block; }
+        .rbook { grid-template-columns: 1fr; gap: 32px; }
+        .rbook .pf { max-width: 300px; }
+      }
+    
+      /* ---- Hero fills the whole first screen (viewport minus the header; --hh is measured by the script) ---- */
+      .hero {
+        display: flex;
+        align-items: center;
+        min-height: calc(100vh - var(--hh, 80px));
+        min-height: calc(100svh - var(--hh, 80px));
+      }
+      .hero .wrap.hc {
+        width: 100%;
+        padding-top: clamp(48px, 10vh, 120px);
+        padding-bottom: clamp(48px, 10vh, 120px);
+      }
+      /* ===== HELP TO SMILE: Muskan Clinic (separate from Chetu Kids Club) ===== */
+      .muskan{background:var(--bg2);padding:72px 0}
+      .mlogo{max-width:340px;margin:0 0 30px}
+      .mlogo img{width:100%;height:auto}
+      @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mlogo{background:#fdf6e8;padding:14px 22px}}
+      :root[data-theme="dark"] .mlogo{background:#fdf6e8;padding:14px 22px}
+      /* Muskan: smaller photo */
+      @media(min-width:901px){.muskan .cleft{grid-template-columns:minmax(0,280px) 1fr;gap:64px}}
+      .muskan .cimg{max-width:280px}
+    
+    
+      /* ---- Expandable events: title toggles the description (hidden until opened) ---- */
+      .ev-more summary { display: block; list-style: none; cursor: pointer; }
+      .ev-more summary::-webkit-details-marker { display: none; }
+      .ev-more summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
+      .ev-more summary h3 { margin-bottom: 14px; transition: color 0.2s; }
+      .ev-more summary:hover h3 { color: var(--goldtx); }
+      .ev-tog { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--goldtx); }
+      .ev-tog::before { content: "+"; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1px solid var(--goldtx); font-size: 16px; line-height: 1; letter-spacing: 0; }
+      .ev-more[open] .ev-tog::before { content: "\2212"; }
+      .ev-tog .t-close, .ev-more[open] .ev-tog .t-open { display: none; }
+      .ev-more[open] .ev-tog .t-close { display: inline; }
+      .ev-desc { padding-top: 22px; }
+      .ev-desc p:last-child { margin-bottom: 0; }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="bar">
+        <a href="#/"><img src="assets/home/punyaarjan-foundation-logo.png" alt="Punyaarjan Foundation Logo" /></a>
+        <nav id="mainnav">
+          <a class="mhome" href="#/">Home</a><a href="#/about" data-r="about">About</a><a href="#/projects" data-r="projects">Projects</a
+          ><a href="#/knowledge-philanthropy" data-r="knowledge-philanthropy">Knowledge Philanthropy</a
+          ><a href="#/other-resources" data-r="other-resources">Other Resources</a
+          ><a href="https://punyaperspectives.substack.com" data-r="perspectives">Perspectives</a>
+        </nav>
+        <a class="bx" href="#/support">Support Us</a>
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainnav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+    <main id="top">
+      <!-- ================= PAGE: HOME ================= -->
+      <div class="page on" id="home">
+        <div class="hero">
+          <svg class="rip" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g fill="none" stroke="#fff6df" stroke-width="1.5" opacity=".24">
+              <circle cx="600" cy="600" r="110" />
+              <circle cx="600" cy="600" r="210" />
+              <circle cx="600" cy="600" r="310" />
+              <circle cx="600" cy="600" r="410" />
+              <circle cx="600" cy="600" r="510" />
+              <circle cx="600" cy="600" r="610" />
+              <circle cx="600" cy="600" r="710" />
+            </g>
+          </svg>
+          <div class="wrap hc">
+            <h1>In giving, <em>you receive.</em></h1>
+            <p class="mission">
+              We are a Nepali non-profit working to turn <em>scattered goodwill</em> into <em>focused action</em> in healthcare.
+            </p>
+            <div class="btns">
+              <a class="bx" href="#/projects">Our projects ↓</a><a class="bx" href="#/knowledge-philanthropy">Knowledge philanthropy</a>
+            </div>
+          </div>
+        </div>
+
+        <section class="tease">
+          <div class="wrap">
+            <div
+              class="msc"
+              id="msc"
+              role="img"
+              aria-label="Punyaarjan: Punya is virtue or merit earned through selfless acts; Aarjan means to earn"
+            >
+              <img src="assets/home/punyaarjan.png" alt="" /><img class="pun" src="assets/home/punya.png" alt="" /><img class="aar" src="assets/home/aarjan.png" alt="" />
+            </div>
+            <a class="bx" href="#/about">Read about us →</a>
+          </div>
+        </section>
+
+        <section class="focus" id="projects">
+          <div class="wrap">
+            <h2>Our Projects</h2>
+            <div class="pj">
+              <div class="im">
+                <img
+                  src="assets/home/our-projects/chronic-wound-healing.jpg"
+                  alt="Medical team treating a patient’s wound in an operating room"
+                  loading="lazy"
+                />
+              </div>
+              <div class="tx">
+                <a class="plain-link" href="#/wound-healing"><h3>Chronic Wound Healing</h3></a>
+                <p>
+                  By scaling access to the LPRF treatment, we equip hospitals and medical teams to improve outcomes and quality of life for
+                  patients living with hard-to-heal wounds.
+                </p>
+                <a class="learn" href="#/wound-healing">Learn more →</a>
+              </div>
+            </div>
+            <div class="pj rev">
+              <div class="im">
+                <img src="assets/home/our-projects/help-to-smile.jpg" alt="Two smiling girls greeting the camera" loading="lazy" />
+              </div>
+              <div class="tx">
+                <a class="plain-link" href="#/help-to-smile"><h3>Help to Smile</h3></a>
+                <p>
+                  We work to educate children and families and equip schools with the knowledge and tools to prevent oral disease and foster
+                  lifelong healthy habits.
+                </p>
+                <a class="learn" href="#/help-to-smile">Learn more →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="punch">
+          <div class="wrap">
+            <h2>When <em>goodwill</em> connects good people, good impact is guaranteed.</h2>
+            <p style="margin-top: 34px"><a class="bx" href="#/support">Support Us</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PAGE: ABOUT ================= -->
+      <div class="page" id="about">
+        <div class="phead">
+          <div class="wrap">
+            <h1>The Concept of <em>Punyaarjan</em></h1>
+          </div>
+        </div>
+        <section style="padding-top: 64px">
+          <div class="wrap read article">
+            <p>
+              We often think of human beings as fundamentally self-interested. Much of economics has traditionally been built around this
+              idea: people make choices to improve their own well-being, seeking security, comfort, pleasure or satisfaction.
+            </p>
+            <p>
+              But look around, and another side of human nature is impossible to ignore. People give their time to help a neighbour. They
+              donate to strangers, teach without pay, care for family members, volunteer for causes they believe in, and use their skills to
+              solve problems that matter to them.
+            </p>
+            <p>Why do we do these things?</p>
+            <p><strong style="font-weight: 600; color: var(--tx)">One answer is that giving feels good.</strong></p>
+            <p>
+              In 1989, economist James Andreoni introduced an influential theory of
+              <a class="lnk" href="https://econweb.ucsd.edu/~jandreoni/Publications/ej90.pdf" target="_blank" rel="noopener"
+                >“warm-glow” giving</a
+              >. He proposed that people can care both about the good their contributions do for others and about the satisfaction they
+              derive from giving itself. The feeling of knowing <i>I helped</i> can be a reward in its own right.
+            </p>
+            <p>
+              In 2006, neuroscience research provided early evidence that charitable giving
+              <a class="lnk" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1622872/" target="_blank" rel="noopener"
+                >activates brain regions involved in reward</a
+              >. Subsequent research has linked giving to
+              <a class="lnk" href="https://www.nature.com/articles/ncomms15964" target="_blank" rel="noopener">greater happiness</a> and a
+              stronger sense of purpose. Together, these findings offer a scientific basis for the idea that helping others can enrich our
+              own lives, too.
+            </p>
+            <p>
+              This does not mean that people give simply to feel good. Generosity can arise from compassion, duty, love, solidarity,
+              personal values or a genuine concern for another person’s well-being. Often, these motivations coexist.
+            </p>
+            <p>
+              Long before economists and neuroscientists studied the rewards of generosity, cultures, religions and philosophies around the
+              world had recognised that doing good carries a value of its own. The Sanskrit word <i>punya</i> captures one expression of
+              this idea: there is a moral or spiritual merit associated with good deeds.
+            </p>
+            <p>
+              Whether understood as warm glow, <i>punya</i>, or through the emerging science of generosity, these perspectives converge on
+              the idea that when we make someone else’s life better, we enrich our own in the process. Not necessarily through material
+              gain, but through a deeper sense of meaning, fulfilment, connection and the knowledge that our actions have made a difference.
+            </p>
+            <p class="idea">This is the idea behind <em>Punyaarjan.</em></p>
+            <img
+              class="mean"
+              src="assets/about/punyaarjan-meaning.png"
+              alt="Punyaarjan: Punya is virtue or merit earned through selfless acts; Aarjan means to earn"
+            />
+            <p>
+              Punyaarjan literally means “earning <i>punya</i>.” We believe that when we put what we have for the benefit of others, we
+              create value on both sides. Our time, knowledge, skills, resources, relationships and influence can help others overcome
+              challenges while giving us a deeper sense of purpose.
+            </p>
+            <h2 class="sub">What we’re working on</h2>
+            <p>
+              We draw on a principle from the
+              <a
+                class="lnk"
+                href="https://www.effectivealtruism.org/articles/introduction-to-effective-altruism"
+                target="_blank"
+                rel="noopener"
+                >effective altruism</a
+              >
+              community: to do the most good, focus on problems that are important, neglected, and solvable.
+            </p>
+            <p>
+              Healthcare in developing regions like Nepal is one such challenge. Despite the dedication of many healthcare workers and
+              community initiatives, gaps in access to medical resources and expertise persist. Innovative technology offers new ways to
+              address these gaps, but
+              <a class="lnk" href="https://nepalitimes.com/altruistic-healthcare-models-in-nepal" target="_blank" rel="noopener"
+                >lasting progress</a
+              >
+              depends on local commitment and the capacity to sustain solutions over time.
+            </p>
+            <p>
+              We believe the willingness to help is already there. But the connection between people who care, those who have the knowledge
+              and resources to contribute, and the healthcare problems that need attention is what is missing.
+            </p>
+            <p>
+              We work to build these connections. We work to adapt technological innovation, strengthen community initiatives, and improve
+              health education and awareness. We turn scattered goodwill into focused action in healthcare.
+            </p>
+            <p class="invite">
+              Whether you are an expert with knowledge to share, a young person eager to learn and contribute to our cause area, a
+              professional looking to apply your skills beyond your job, or someone who cares about making things better, we invite you to
+              join Punyaarjan.
+            </p>
+          </div>
+        </section>
+        <div class="punch">
+          <div class="wrap">
+            <h2>When <em>goodwill</em> connects good people, good impact is guaranteed.</h2>
+            <p style="margin-top: 34px"><a class="btn" href="#/support">Support Us</a></p>
+          </div>
+        </div>
+      </div>
+      <!-- ================= PAGE: CHRONIC WOUND HEALING (#/wound-healing) ================= -->
+      <div class="page" id="wound">
+        <div class="phead">
+          <div class="wrap">
+            <h1>Chronic Wound <em>Healing</em></h1>
+          </div>
+        </div>
+        <section style="padding-bottom: 40px">
+          <div class="wrap read article">
+            <h2 class="sub" style="margin-top: 0">The problem</h2>
+            <ul class="pts">
+              <li>
+                <a class="lnk" href="https://www.ncbi.nlm.nih.gov/books/NBK326431/" target="_blank" rel="noopener"
+                  >Chronic non-healing wounds</a
+                >, driven by rising global rates of diabetes, vascular diseases, and neglected infectious lesions like leprosy, affect
+                millions worldwide and, without early intervention, frequently lead to severe tissue loss and avoidable lower-limb
+                amputations.
+              </li>
+              <li>
+                Patients suffering from long-term open wounds endure continuous pain, restricted physical mobility, higher risks of
+                recurrent severe infections, and profound social isolation and depression.
+              </li>
+              <li>
+                Treatment of non-healing wounds places an immense financial burden on vulnerable families through
+                <a class="lnk" href="https://www.ncbi.nlm.nih.gov/books/NBK326431/" target="_blank" rel="noopener"
+                  >direct out-of-pocket medical expenses</a
+                >, while severe disability and lost productivity drain household incomes and
+                <a class="lnk" href="https://www.sciencedirect.com/science/article/pii/S2666142X25000232" target="_blank" rel="noopener"
+                  >strain overburdened healthcare systems</a
+                >.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="focus" style="text-align: left">
+          <div class="wrap">
+            <div class="pj">
+              <div class="im">
+                <img
+                  src="assets/projects/chronic-wound-healing/simple-safe-cost-effective.JPG"
+                  alt="Doctors demonstrating a wound treatment on a patient’s foot while trainees look on"
+                  loading="lazy"
+                />
+              </div>
+              <div class="tx">
+                <h3>A Simple, Safe, and Cost-Effective Solution</h3>
+                <p>
+                  Natural guided regeneration using L-PRF (Leukocyte Platelet Rich Fibrin) is an autologous treatment approach, suitable for
+                  treating chronic wounds such as diabetic foot ulcers, venous ulcers, traumatic ulcers, leprosy foot ulcers, small burns
+                  and many more.
+                </p>
+                <a class="learn" style="margin-top: 30px" href="https://www.l-prf4all.com/" target="_blank" rel="noopener"
+                  >Read about L-PRF↗</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <section style="padding: 70px 0 30px">
+          <div class="wrap read article">
+            <h2 class="ct">Our <em>Wound Healing</em> Clinics</h2>
+            <p>
+              We have established “Punyaarjan Wound Healing Clinics” in several hospitals and healthcare centers across Nepal and in two
+              locations in Myanmar, and have equipped these clinics with the technology to treat chronic wounds.
+            </p>
+          </div>
+          <div class="wrap mapsw">
+            <div class="mp">
+              <div class="mapbox np">
+                <img
+                  src="assets/projects/chronic-wound-healing/nepal-map.png"
+                  alt="Map of Nepal showing the locations of Punyaarjan wound healing clinics 1 to 6 and 10 to 12"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="mt below">Punyaarjan Wound Healing Clinics in Nepal</h3>
+              <ul class="lg two">
+                <li><b>1</b><span>Nepal Cleft and Burn Center, Kirtipur Hospital</span></li>
+                <li><b>2</b><span>Anandaban Hospital</span></li>
+                <li><b>3</b><span>Anandaban Hospital - Patan Clinic</span></li>
+                <li><b>4</b><span>Sushma Koirala Memorial Hospital</span></li>
+                <li><b>5</b><span>Karnali Academy of Health Science</span></li>
+                <li><b>6</b><span>Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital</span></li>
+                <li><b>10</b><span>Lalgadh Leprosy Hospital</span></li>
+                <li><b>11</b><span>Bayalpata Hospital</span></li>
+                <li><b>12</b><span>Hospice Nepal</span></li>
+              </ul>
+            </div>
+            <div class="mp mm">
+              <div class="mapbox">
+                <img
+                  src="assets/projects/chronic-wound-healing/myanmar-map.png"
+                  alt="Map of Myanmar showing the locations of Punyaarjan wound healing clinics 7 to 9"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3 class="mt">Punyaarjan Wound Healing Clinics in Myanmar</h3>
+                <ul class="lg">
+                  <li><b>7</b><span>Yenanthar Leprosy Hospital</span></li>
+                  <li><b>8</b><span>Department of Dermatology, Yangon General Hospital</span></li>
+                  <li><b>9</b><span>Orthopedic Department, Yangon General Hospital</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="wrap" style="max-width: 900px; margin-top: 20px">
+            <details class="cl">
+              <summary><span class="rn">Clinic 1</span><span class="cn">Kirtipur Hospital</span></summary>
+              <div class="cb">
+                <p class="cm">Devdhoka, Kirtipur Municipality, Kirtipur, Nepal</p>
+                <p class="cd">Wound Clinic established: 24th March 2016</p>
+                <p>
+                  Kirtipur Hospital is a community hospital run by the PHECT Nepal (Public Health Concern Trust) along with Kirtipur
+                  Municipality. The Nepal Cleft and Burn Center, under Kirtipur Hospital, is an acute burn treatment facility that
+                  specializes in the treatment of cleft lip and palate and burns.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/1.jpeg" alt="Kirtipur Hospital, photo 1" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/2.jpeg"
+                      alt="Kirtipur Hospital, photo 2"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/3.jpeg" alt="Kirtipur Hospital, photo 3" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/4.jpeg"
+                      alt="Kirtipur Hospital, photo 4"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/5.jpeg" alt="Kirtipur Hospital, photo 5" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/6.jpeg"
+                      alt="Kirtipur Hospital, photo 6"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/7.jpeg" alt="Kirtipur Hospital, photo 7" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/8.jpeg"
+                      alt="Kirtipur Hospital, photo 8"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/9.JPG" alt="Kirtipur Hospital, photo 9" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/10.JPG"
+                      alt="Kirtipur Hospital, photo 10"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/11.JPG" alt="Kirtipur Hospital, photo 11" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/12.JPG"
+                      alt="Kirtipur Hospital, photo 12"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/13.JPG" alt="Kirtipur Hospital, photo 13" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/14.JPG"
+                      alt="Kirtipur Hospital, photo 14"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/15.JPG" alt="Kirtipur Hospital, photo 15" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/1-kirtipur/16.JPG"
+                      alt="Kirtipur Hospital, photo 16"
+                      loading="lazy"
+                    />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary><span class="rn">Clinic 2</span><span class="cn">Anandaban Hospital</span></summary>
+              <div class="cb">
+                <p class="cm">Lele, Nepal being managed by The Leprosy Mission Nepal</p>
+                <p class="cd">Wound Clinic established: 14th Feb 2018</p>
+                <p>
+                  Anandaban Hospital is a health facility that has been providing specialist tertiary leprosy care. The hospital receives a
+                  large number of leprosy referrals from across Nepal and India each year.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/1.JPG" alt="Anandaban Hospital, photo 1" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/2.JPG"
+                      alt="Anandaban Hospital, photo 2"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/3.JPG" alt="Anandaban Hospital, photo 3" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/4.JPG"
+                      alt="Anandaban Hospital, photo 4"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/5.JPG" alt="Anandaban Hospital, photo 5" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/6.JPG"
+                      alt="Anandaban Hospital, photo 6"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/7.JPG" alt="Anandaban Hospital, photo 7" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/8.JPG"
+                      alt="Anandaban Hospital, photo 8"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/9.JPG" alt="Anandaban Hospital, photo 9" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/10.JPG"
+                      alt="Anandaban Hospital, photo 10"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/11.JPG" alt="Anandaban Hospital, photo 11" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/2-anandabanl-lele/12.JPG"
+                      alt="Anandaban Hospital, photo 12"
+                      loading="lazy"
+                    />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary><span class="rn">Clinic 3</span><span class="cn">Anandaban Hospital - Patan Clinic</span></summary>
+              <div class="cb">
+                <p class="cm">Talchhikhel, Nepal</p>
+                <p class="cd">Wound Clinic established: 28th Feb 2018</p>
+                <p>
+                  The Patan Clinic is a town-branch of the Anandaban Hospital, Lele. It was established to make the health services provided
+                  by Anandaban Hospital more accessible to locals in Patan and nearby communities.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/3-anandabanl-patan/1.JPG"
+                      alt="Anandaban Hospital - Patan Clinic, photo 1"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/3-anandabanl-patan/2.JPG"
+                      alt="Anandaban Hospital - Patan Clinic, photo 2"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/3-anandabanl-patan/3.JPG"
+                      alt="Anandaban Hospital - Patan Clinic, photo 3"
+                      loading="lazy"
+                    />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary><span class="rn">Clinic 4</span><span class="cn">Sushma Koirala Memorial Hospital</span></summary>
+              <div class="cb">
+                <p class="cm">Sankhu, Nepal</p>
+                <p class="cd">Wound Clinic established: 24th June 2018</p>
+                <p>
+                  The Sushma Koirala Memorial Hospital is a healthcare center specialized to dispense burn and reconstructive surgery
+                  treatment. Established in 1997, the SKM Hospital is a joint project of Interplast Germany Foundation, Sushma Koirala
+                  Memorial Trust and Social Welfare Council.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/4-sushma-koirala/1.png"
+                      alt="Sushma Koirala Memorial Hospital, photo 1"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/4-sushma-koirala/2.JPG"
+                      alt="Sushma Koirala Memorial Hospital, photo 2"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/4-sushma-koirala/3.JPG"
+                      alt="Sushma Koirala Memorial Hospital, photo 3"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/4-sushma-koirala/4.JPG"
+                      alt="Sushma Koirala Memorial Hospital, photo 4"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/4-sushma-koirala/5.JPG"
+                      alt="Sushma Koirala Memorial Hospital, photo 5"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/4-sushma-koirala/6.JPG"
+                      alt="Sushma Koirala Memorial Hospital, photo 6"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/4-sushma-koirala/7.JPG"
+                      alt="Sushma Koirala Memorial Hospital, photo 7"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/4-sushma-koirala/8.JPG"
+                      alt="Sushma Koirala Memorial Hospital, photo 8"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/4-sushma-koirala/9.JPG"
+                      alt="Sushma Koirala Memorial Hospital, photo 9"
+                      loading="lazy"
+                    />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary><span class="rn">Clinic 5</span><span class="cn">Karnali Academy of Health Science</span></summary>
+              <div class="cb">
+                <p class="cm">Jumla, Karnali, Nepal</p>
+                <p class="cd">Wound Clinic established: 30th June 2018</p>
+                <p>
+                  Karnali Academy of Health Sciences (KAHS), established in 2011, aims to enable access to quality healthcare services and
+                  education for the people of remote areas at an affordable cost. KAHS has achieved this by establishing a health institute
+                  at Jumla and KAHS district to produce skilled health professionals to deliver quality health care services and conduct
+                  health research.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/5-karnali/1.JPG"
+                      alt="Karnali Academy of Health Science, photo 1"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/5-karnali/2.JPG"
+                      alt="Karnali Academy of Health Science, photo 2"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/5-karnali/3.JPG"
+                      alt="Karnali Academy of Health Science, photo 3"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/5-karnali/4.JPG"
+                      alt="Karnali Academy of Health Science, photo 4"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/5-karnali/5.JPG"
+                      alt="Karnali Academy of Health Science, photo 5"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/5-karnali/6.JPG"
+                      alt="Karnali Academy of Health Science, photo 6"
+                      loading="lazy"
+                    />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary>
+                <span class="rn">Clinic 6</span><span class="cn">Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital</span>
+              </summary>
+              <div class="cb">
+                <p class="cm">Kathmandu, Nepal</p>
+                <p class="cd">Wound Clinic established: 25th Jan 2019</p>
+                <p>
+                  Bir Hospital, the oldest hospital of Nepal, established in 1889, is one of the busiest in Nepal. The separate Burns and
+                  Plastic surgery unit was established in the year 1998, with 10 beds including intensive care services in Bir hospital. The
+                  unit provides treatment for burns and plastic surgery services free of cost.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/1.jpeg"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 1"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/2.jpeg"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 2"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/3.jpeg"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 3"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/4.jpeg"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 4"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/5.JPG"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 5"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/6.JPG"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 6"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/7.JPG"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 7"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/8.JPG"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 8"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/9.JPG"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 9"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/10.JPG"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 10"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/11.JPG"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 11"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/6-bir/12.JPG"
+                      alt="Burn &amp; Plastic Surgery Department, (NAMS), Bir Hospital, photo 12"
+                      loading="lazy"
+                    />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary><span class="rn">Clinic 7</span><span class="cn">Yenenthar Leprosy Hospital</span></summary>
+              <div class="cb">
+                <p class="cm">Madya Township, Mandalay, Myanmar</p>
+                <p class="cd">Wound Clinic established: 25th Feb 2019</p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/7-yenenthar/1.JPG" alt="Yenenthar Leprosy Hospital, photo 1" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/7-yenenthar/2.JPG"
+                      alt="Yenenthar Leprosy Hospital, photo 2"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/7-yenenthar/3.JPG" alt="Yenenthar Leprosy Hospital, photo 3" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/7-yenenthar/4.JPG"
+                      alt="Yenenthar Leprosy Hospital, photo 4"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/7-yenenthar/5.JPG" alt="Yenenthar Leprosy Hospital, photo 5" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/7-yenenthar/6.JPG"
+                      alt="Yenenthar Leprosy Hospital, photo 6"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/7-yenenthar/7.JPG" alt="Yenenthar Leprosy Hospital, photo 7" loading="lazy" />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary><span class="rn">Clinic 8</span><span class="cn">Department of Dermatology, Yangon General Hospital</span></summary>
+              <div class="cb">
+                <p class="cm">Yangon, Myanmar</p>
+                <p class="cd">Wound Clinic established: 26th Feb 2019</p>
+                <p>
+                  Yangon General Hospital is a prominent public hospital in a 14-hectare compound in Yangon, Myanmar. The 2,000-bed hospital
+                  consists of seven medical wards, three surgical wards, two trauma and orthopaedic wards, and 28 specialist departments for
+                  inpatient care.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/1.jpeg"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 1"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/2.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 2"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/3.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 3"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/4.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 4"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/5.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 5"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/6.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 6"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/7.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 7"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/8.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 8"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/9.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 9"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/10.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 10"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/11.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 11"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/12.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 12"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/13.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 13"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/8-yangon-derma/14.JPG"
+                      alt="Department of Dermatology, Yangon General Hospital, photo 14"
+                      loading="lazy"
+                    />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary><span class="rn">Clinic 9</span><span class="cn">Orthopedic Department, Yangon General Hospital</span></summary>
+              <div class="cb">
+                <p class="cm">Yangon, Myanmar</p>
+                <p class="cd">Wound Clinic established: 26th Feb 2019</p>
+                <p>
+                  Yangon General Hospital is a prominent public hospital in a 14-hectare compound in Yangon, Myanmar. The 2,000-bed hospital
+                  consists of seven medical wards, three surgical wards, two trauma and orthopaedic wards, and 28 specialist departments for
+                  inpatient care.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/1.jpeg"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 1"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/2.jpeg"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 2"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/3.jpeg"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 3"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/4.jpeg"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 4"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/5.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 5"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/6.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 6"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/7.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 7"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/8.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 8"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/9.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 9"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/10.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 10"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/11.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 11"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/12.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 12"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/13.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 13"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/14.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 14"
+                      loading="lazy"
+                    /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/9-yangon-ortho/15.JPG"
+                      alt="Orthopedic Department, Yangon General Hospital, photo 15"
+                      loading="lazy"
+                    />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary><span class="rn">Clinic 10</span><span class="cn">Lalgadh Leprosy Hospital</span></summary>
+              <div class="cb">
+                <p class="cm">Lalgadh, Dhanusa, Nepal</p>
+                <p class="cd">Wound Clinic established: 1st March 2022</p>
+                <p>
+                  One of the world’s busiest leprosy hospitals, Lalgadh Leprosy Hospital and Services Center has an annual patient-flow of
+                  over 1,100 new leprosy patients, and over 12,000 total leprosy consultations, and over 110,000 outpatient consultations.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/1.jpeg" alt="Lalgadh Leprosy Hospital, photo 1" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/2.jpeg"
+                      alt="Lalgadh Leprosy Hospital, photo 2"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/3.jpeg" alt="Lalgadh Leprosy Hospital, photo 3" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/4.jpeg"
+                      alt="Lalgadh Leprosy Hospital, photo 4"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/5.jpeg" alt="Lalgadh Leprosy Hospital, photo 5" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/6.JPG"
+                      alt="Lalgadh Leprosy Hospital, photo 6"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/7.JPG" alt="Lalgadh Leprosy Hospital, photo 7" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/8.JPG"
+                      alt="Lalgadh Leprosy Hospital, photo 8"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/9.JPG" alt="Lalgadh Leprosy Hospital, photo 9" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/10.JPG"
+                      alt="Lalgadh Leprosy Hospital, photo 10"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/11.JPG" alt="Lalgadh Leprosy Hospital, photo 11" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/12.JPG"
+                      alt="Lalgadh Leprosy Hospital, photo 12"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/13.JPG" alt="Lalgadh Leprosy Hospital, photo 13" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/14.JPG"
+                      alt="Lalgadh Leprosy Hospital, photo 14"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/15.JPG" alt="Lalgadh Leprosy Hospital, photo 15" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/16.JPG"
+                      alt="Lalgadh Leprosy Hospital, photo 16"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/17.JPG" alt="Lalgadh Leprosy Hospital, photo 17" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/18.JPG"
+                      alt="Lalgadh Leprosy Hospital, photo 18"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/19.JPG" alt="Lalgadh Leprosy Hospital, photo 19" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/20.JPG"
+                      alt="Lalgadh Leprosy Hospital, photo 20"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/21.JPG" alt="Lalgadh Leprosy Hospital, photo 21" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/22.JPG"
+                      alt="Lalgadh Leprosy Hospital, photo 22"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/23.JPG" alt="Lalgadh Leprosy Hospital, photo 23" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/24.JPG"
+                      alt="Lalgadh Leprosy Hospital, photo 24"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/10-lalgadh/25.JPG" alt="Lalgadh Leprosy Hospital, photo 25" loading="lazy" />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary><span class="rn">Clinic 11</span><span class="cn">Bayalpata Hospital</span></summary>
+              <div class="cb">
+                <p class="cm">Sanfebagar Municipality, Achham, Nepal</p>
+                <p class="cd">Wound Clinic established: 18th March 2022</p>
+                <p>
+                  Bayalpata hospital, located in Achham, delivers low-cost, high-quality care to more than 100,000 patients a year from all
+                  over Achham and its six surrounding districts.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/11-bayalpata/1.jpeg" alt="Bayalpata Hospital, photo 1" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/11-bayalpata/2.jpeg"
+                      alt="Bayalpata Hospital, photo 2"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/11-bayalpata/3.JPG" alt="Bayalpata Hospital, photo 3" loading="lazy" />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+            <details class="cl">
+              <summary><span class="rn">Clinic 12</span><span class="cn">Hospice Nepal</span></summary>
+              <div class="cb">
+                <p class="cm">Lalitpur, Nepal</p>
+                <p class="cd">Wound Clinic established: 14th June 2022</p>
+                <p>
+                  Hospice Nepal is the first Palliative Care Centre established in Nepal that cares for patients suffering from
+                  life-threatening illness, particularly cancer when curative treatment options run out. It is a non profit charity
+                  organisation duly registered with the Government of Nepal.
+                </p>
+                <div class="galw">
+                  <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                  <div class="gal">
+                    <img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/12-hospice/1.jpeg" alt="Hospice Nepal, photo 1" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/12-hospice/2.jpeg"
+                      alt="Hospice Nepal, photo 2"
+                      loading="lazy"
+                    /><img src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/12-hospice/3.jpeg" alt="Hospice Nepal, photo 3" loading="lazy" /><img
+                      src="assets/projects/chronic-wound-healing/our-wound-healing-clinics/12-hospice/4.jpeg"
+                      alt="Hospice Nepal, photo 4"
+                      loading="lazy"
+                    />
+                  </div>
+                  <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+        <section class="quote">
+          <div class="wrap qg">
+            <blockquote class="qt">
+              <span class="qline"></span>
+              <p>“Healing a patient’s wound may not change much in the world, but it changes the entire world of that patient.”</p>
+              <cite>— Prof. Dr. Nelson R. Pinto</cite>
+            </blockquote>
+            <a class="book" href="assets/projects/chronic-wound-healing/healing-from-within.pdf" target="_blank" rel="noopener" download="Healing-from-Within.pdf" aria-label="Download the book Healing from Within: A Nepali Success Story (PDF)"><img
+                src="assets/projects/chronic-wound-healing/healing-from-within-cover.png"
+                alt="Cover of the book Healing from Within: A Nepali Success Story, by Yugeshwor Koirala and Yugottam Koirala"
+              /><span>Download the book ↓</span></a
+            >
+          </div>
+        </section>
+        <section style="padding: 50px 0 30px">
+          <div class="wrap read article">
+            <h2 class="sub" style="margin-top: 0">Transforming Leprosy Care</h2>
+            <p>
+              Leprosy-induced ulcers are painful, recurring lesions that lead to loss of function, financial hardship, and social stigma.
+              The Anandaban Leprosy Hospital, one of our first partners in this project, is using LPRF to revolutionize care and accelerate
+              healing in patients, which is helping them regain their independence.
+            </p>
+            <a
+              class="learn"
+              style="margin-top: 6px"
+              href="https://nepalitimes.com/new-treatment-offers-hope-for-nepal-s-leprosy-patients"
+              target="_blank"
+              rel="noopener"
+              >Read the story ↗</a
+            >
+            <a
+              class="vcard"
+              href="https://youtu.be/kJLBI7sim0M?si=qxd7DFzTuutzyFBi"
+              target="_blank"
+              rel="noopener"
+              aria-label="Watch the video on YouTube"
+              ><img src="assets/projects/chronic-wound-healing/nepali-times-video-magical-healing.png" alt="Nepali Times video: Magical Healing" /><span class="play"
+                ><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span
+              ><span class="vcap">Watch the video ↗</span></a
+            >
+          </div>
+        </section>
+        <section style="padding: 40px 0 70px">
+          <div class="wrap read article">
+            <h2 class="sub" style="margin-top: 0">Diabetic ulcers are another silent crisis</h2>
+            <p>
+              <a class="lnk" href="https://nepalitimes.com/a-deadly-sugar-rush" target="_blank" rel="noopener"
+                >1 in 5 people have diabetes in Nepal</a
+              >
+              but nearly half remain undiagnosed. Diabetic foot ulcers are emerging as a major public health challenge. Without awareness,
+              early screening, and access to care, preventable wounds will continue to drive avoidable amputations, disability, and
+              socioeconomic hardship.
+            </p>
+          </div>
+        </section>
+
+        <section style="padding: 70px 0 30px">
+          <div class="wrap read article">
+            <h2 class="ct" style="font-size: clamp(32px, 5vw, 58px); margin: 0">Every wound has a <em>story.</em></h2>
+          </div>
+        </section>
+        <div class="sancho">
+          <div class="st">
+            <p>
+              <a class="plain-link" href="https://sanchostories.punyaarjanfoundation.org.np" target="_blank" rel="noopener"><b>Sancho Stories</b></a> 
+              is our creative initiative that uses abstract paintings to tell stories of wounds, pain, and lived
+              experiences of patients, raising awareness and fostering greater understanding of neglected health challenges in Nepal.
+            </p>
+            <a class="sl" href="https://sanchostories.punyaarjanfoundation.org.np" target="_blank" rel="noopener">Learn more</a>
+          </div>
+          <a
+            class="sv"
+            href="https://www.youtube.com/watch?v=48clC1yyNIs"
+            target="_blank"
+            rel="noopener"
+            aria-label="Watch Behind Our Paintings by Sancho Stories on YouTube"
+            ><img src="assets/projects/chronic-wound-healing/sancho-stories-video.png" alt="Sancho Stories: Behind Our Paintings" loading="lazy" /><span
+              class="play"
+              ><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span
+            ><span class="vcap">Behind Our Paintings · Watch on YouTube ↗</span></a
+          >
+        </div>
+      </div>
+      <!-- ================= PAGE: HELP TO SMILE (#/help-to-smile) ================= -->
+      <div class="page" id="smile">
+        <div class="phead">
+          <div class="wrap">
+            <h1>Help to <em>Smile</em></h1>
+          </div>
+        </div>
+        <section style="padding-bottom: 40px">
+          <div class="wrap read article">
+            <h2 class="sub" style="margin-top: 0">The problem</h2>
+            <ul class="pts">
+              <li>
+                Nepal faces a severe
+                <a
+                  class="lnk"
+                  href="https://cdn.who.int/media/docs/default-source/country-profiles/oral-health/oral-health-npl-2022-country-profile.pdf?sfvrsn=1e39b720_9&amp;download=true"
+                  target="_blank"
+                  rel="noopener"
+                  >oral disease burden</a
+                >
+                driven by high rates of dental caries, periodontal disease, and poor access to care.
+              </li>
+              <li>
+                Untreated oral diseases lead to severe pain, costly advanced treatments, lost work productivity, and significant absence
+                from school among children.
+              </li>
+              <li>
+                Poor oral hygiene and gum diseases are also linked to an increased risk of major non-communicable diseases such as
+                <a
+                  class="lnk"
+                  href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(26)00149-0/fulltext"
+                  target="_blank"
+                  rel="noopener"
+                  >diabetes</a
+                >
+                and
+                <a
+                  class="lnk"
+                  href="https://www.internationaljournalofcardiology.com/article/S0167-5273(25)01194-5/fulltext"
+                  target="_blank"
+                  rel="noopener"
+                  >cardiovascular diseases</a
+                >.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <div class="whoq">
+          <div class="wrap">
+            <p>Most oral diseases are preventable and can be treated in their early stages.</p>
+            <cite>— World Health Organization</cite>
+          </div>
+        </div>
+        <section style="padding: 50px 0 56px">
+          <div class="wrap" style="max-width: 900px">
+            <h2 class="ct" style="font-size: clamp(32px, 5vw, 58px); margin: 0">We educate <em>children, teachers and parents.</em></h2>
+          </div>
+        </section>
+        <div class="chetu">
+          <div class="chtop">
+            <div class="chtx">
+              <p>
+                <a class="plain-link" href="https://www.chetukidsclub.org" target="_blank" rel="noopener"><b>Chetu Kids Club</b></a>
+                is our innovative, child-centered initiative to make oral fitness fun by empowering children, parents
+                and teachers to build healthy habits together through interactive, prevention-focused learning.
+              </p>
+              <a class="sl" href="https://www.chetukidsclub.org" target="_blank" rel="noopener">Learn more</a>
+            </div>
+            <a href="https://www.chetukidsclub.org" target="_blank" rel="noopener"><img src="assets/projects/help-to-smile/chetu-club/chetu-club-logo.png" alt="Chetu Kids Club logo" /></a>
+          </div>
+          <div class="chph">
+            <img src="assets/projects/help-to-smile/chetu-club/chetu-1.jpg" alt="Child brushing a model set of teeth" loading="lazy" /><img
+              src="assets/projects/help-to-smile/chetu-club/chetu-2.jpg"
+              alt="Children and teachers at a toothbrushing technique session"
+              loading="lazy"
+            /><img
+              src="assets/projects/help-to-smile/chetu-club/chetu-3.jpg"
+              alt="Child learning toothbrushing with a dental model at a clinic"
+              loading="lazy"
+            /><img
+              src="assets/projects/help-to-smile/chetu-club/chetu-4.jpg"
+              alt="Children holding up toothbrushes at a school program"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <!-- ============ MUSKAN CLINIC: a separate initiative from Chetu Kids Club ============ -->
+        <!-- Part 1: the problem -->
+        <section style="padding: 110px 0 30px">
+          <div class="wrap read article">
+            <h2 class="sub" style="margin-top: 0">Some children need specialized care</h2>
+            <ul class="pts">
+              <li>
+                Approximately
+                <a class="lnk" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7883453/" target="_blank" rel="noopener">1 in every 2000</a>
+                live births in Nepal is a case of cleft lip or cleft lip and palate.
+              </li>
+              <li>
+                To grow up with good oral health, these children require specialized orthodontic care, preventive dental treatments, and
+                guidance on oral hygiene to allow for proper tooth development and avoid severe decay and gum disease.
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- Part 2: what we do -->
+        <section style="padding: 50px 0 56px">
+          <div class="wrap" style="max-width: 900px">
+            <h2 class="ct" style="font-size: clamp(32px, 5vw, 58px); margin: 0">We are expanding access to oral care for <em>children with cleft lip or palate.</em></h2>
+          </div>
+        </section>
+        <!-- Part 3: the project -->
+        <div class="muskan">
+          <div class="wrap">
+            <div class="two cleft">
+              <img class="cimg" src="assets/projects/help-to-smile/muskan-clinic/cleft-dental-chair.jpeg" alt="Dental team and doctors examining a child in a dental chair at a clinic" loading="lazy" />
+              <div class="article">
+                <div class="mlogo"><img src="assets/projects/help-to-smile/muskan-clinic/muskan-clinic-logo.png" alt="Muskan Clinic logo" /></div>
+                <p style="margin: 0; color: var(--mut)">
+                  Through our partnership with the Muskan Clinic at
+                  <a class="lnk" href="https://nepalitimes.com/removing-scars" target="_blank" rel="noopener">Kirtipur Hospital</a>, we provide
+                  children and their families with the specialized care and guidance they need to maintain good oral hygiene.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ================= PAGE: SUPPORT US (#/support) ================= -->
+      <div class="page" id="support">
+        <div class="phead">
+          <div class="wrap">
+            <h1>Support <em>Us</em></h1>
+          </div>
+        </div>
+        <section>
+          <div class="wrap" style="max-width: 820px">
+            <p class="sup-intro">
+              Punyaarjan’s work is made possible by people who share our commitment to improving healthcare and strengthening communities. 
+              Whether you contribute your time, expertise, ideas, connections, or make a donation, you can make a difference. Tell us a little 
+              about yourself and how you would like to help, and we will be in touch.
+            </p>
+            <form id="sform" class="sform" novalidate>
+              <div class="frow">
+                <label>Name<input name="name" type="text" autocomplete="name" required /></label
+                ><label>Email<input name="email" type="email" autocomplete="email" required /></label>
+              </div>
+              <div class="frow">
+                <label>Phone <span class="opt">(optional)</span><input name="phone" type="tel" autocomplete="tel" /></label
+                ><label>Organization <span class="opt">(optional)</span><input name="org" type="text" autocomplete="organization" /></label>
+              </div>
+              <fieldset>
+                <legend>How would you like to support us?</legend>
+                <div class="chips">
+                  <label class="chip"><input type="checkbox" name="how" value="Make a donation" /><span>Make a donation</span></label
+                  ><label class="chip"
+                    ><input type="checkbox" name="how" value="Volunteer on a project" /><span
+                      >Volunteer on a project</span
+                    ></label
+                  ><label class="chip"
+                    ><input type="checkbox" name="how" value="Share my knowledge or expertise" /><span>Share my knowledge or expertise</span></label
+                  ><label class="chip"
+                    ><input type="checkbox" name="how" value="Build a new project" /><span>Build a new project</span></label
+                  ><label class="chip"
+                  ><input type="checkbox" name="how" value="Connect with other organizations" /><span>Connect with other organizations</span></label
+                  ><label class="chip"
+                  ><input type="checkbox" name="how" value="Something else" /><span>Something else</span></label>
+                </div>
+              </fieldset>
+              <label
+                >Tell us more <span class="opt">(optional)</span
+                ><textarea
+                  name="msg"
+                  rows="6"
+                  placeholder="Describe how you would like to help, or anything you would like us to know."
+                ></textarea>
+              </label>
+              <div class="fact"><button class="btn" type="submit">Send message</button><span id="fnote" role="status"></span></div>
+            </form>
+          </div>
+        </section>
+      </div>
+      <!-- ================= PAGE: KNOWLEDGE PHILANTHROPY (#/knowledge-philanthropy) ================= -->
+      <div class="page" id="knowledge">
+        <div class="phead">
+          <div class="wrap">
+            <h1>Knowledge <em>Philanthropy</em></h1>
+          </div>
+        </div>
+        <section style="padding-bottom: 30px">
+          <div class="wrap read article">
+            <p class="pull">
+              In an age when knowledge is abundant and cheap, the ability to streamline that knowledge to solve problems remains invaluable.
+            </p>
+            <p>
+              We foster knowledge philanthropy by bringing together professionals, researchers and communities to share their expertise,
+              experiences, and strengthen local capabilities to solve pressing healthcare problems in Nepal and the wider Global South.
+            </p>
+          </div>
+        </section>
+        <section style="padding: 30px 0 70px">
+          <div class="wrap" style="max-width: 1000px">
+            <h2 class="ct">Past <em>events</em></h2>
+            <div class="ev-list">
+              <!-- ===== EVENTS are listed newest first. To add one, copy a whole article block (the one starting with the ev-meta line) and paste it at the TOP of this list. The text inside the ev-desc div is hidden until the title is clicked. ===== -->
+              <article class="ev">
+                <div class="ev-meta"><span class="when">6–7 September 2019</span><span class="where">Myanmar</span></div>
+                <div class="ev-body">
+                  <details class="ev-more">
+                    <summary>
+                      <h3>First Myanmar Wound Care Society Summit</h3>
+                      <span class="ev-tog" aria-hidden="true"><span class="t-open">Read more</span><span class="t-close">Show less</span></span>
+                    </summary>
+                    <div class="ev-desc">
+                      <p>
+                    On behalf of the Punyaarjan Chronic Wound Healing Project, Myanmar Chapter, Dr. Nay Aung presented ‘Natural Guided
+                    Regeneration in Wound Healing’ during the First Myanmar Wound Care Society Summit. This opportunity allowed the
+                    Punyaarjan Foundation to further advocate for the widespread adoption of the N-GRT with L-PRF wound-healing technology
+                    in Myanmar.
+                  </p>
+                    </div>
+                  </details>
+                  </div>
+              </article>
+              <article class="ev">
+                <div class="ev-meta"><span class="when">19 July 2019</span></div>
+                <div class="ev-body">
+                  <details class="ev-more">
+                    <summary>
+                      <h3>Natural Guided Regeneration in Wound Healing: A Nepalese Experience</h3>
+                      <span class="ev-tog" aria-hidden="true"><span class="t-open">Read more</span><span class="t-close">Show less</span></span>
+                    </summary>
+                    <div class="ev-desc">
+                      <p>A talk by Dr. Sushil Koirala.</p>
+                    </div>
+                  </details>
+                  <a
+                    class="vcard"
+                    href="https://youtu.be/Bj6hjolDBaU"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Dr. Sushil Koirala · Watch on YouTube ↗"
+                    ><img src="assets/knowledge-philanthropy/nepalese-experience/nepalese-experience-video.png" alt="" loading="lazy" /><span class="play"
+                      ><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span
+                    ><span class="vcap">Dr. Sushil Koirala · Watch on YouTube ↗</span></a
+                  >
+                </div>
+              </article>
+              <article class="ev">
+                <div class="ev-meta"><span class="when">7–9 September 2018</span><span class="where">Belgium</span></div>
+                <div class="ev-body">
+                  <details class="ev-more">
+                    <summary>
+                      <h3>Second European Meeting on Enhanced Natural Healing in Dentistry</h3>
+                      <span class="ev-tog" aria-hidden="true"><span class="t-open">Read more</span><span class="t-close">Show less</span></span>
+                    </summary>
+                    <div class="ev-desc">
+                      <p>
+                    The Catholic University of Leuven invited the Punyaarjan Foundation to the 2nd European Meeting on Enhanced Natural
+                    Healing in Dentistry in September 2018. This allowed the Foundation to showcase the achievements of its Chronic Wound
+                    Healing Project, especially in treating chronic extraoral wounds with L-PRF, like Leprosy plantar ulcers. Dr. Sushil
+                    Koirala, on behalf of the Foundation, presented Nepal’s rapid acceptance of and success with the L-PRF technology.
+                  </p>
+                  <p>
+                    This event marked a milestone in advocating for the widespread adoption of this affordable wound-healing technology.
+                    Special thanks to the Congress Committee, specifically Prof. Dr. Marc Quirynen and Prof. Dr. Nelson Pinto for organizing
+                    the successful event, attended by over 450 participants from 40 countries.
+                  </p>
+                    </div>
+                  </details>
+                  </div>
+              </article>
+              <article class="ev">
+                <div class="ev-meta"><span class="when">16–18 March 2018</span><span class="where">Nepal</span></div>
+                <div class="ev-body">
+                  <details class="ev-more">
+                    <summary>
+                      <h3>Asian Congress of Tissue Regeneration in Medicine &amp; Oral Implantology</h3>
+                      <span class="ev-tog" aria-hidden="true"><span class="t-open">Read more</span><span class="t-close">Show less</span></span>
+                    </summary>
+                    <div class="ev-desc">
+                      <p>
+                    Under the Punyaarjan Chronic Wound Healing Project, and in collaboration with the Asian College of Oral Implantology
+                    &amp; Tissue Regeneration, Public Health Concern Trust Nepal, National Dental Hospital, and Nepal Oral Implantology
+                    Association, the Punyaarjan Foundation organized a 3 day-long congress on Tissue Regeneration in Medicine and Oral
+                    Implantology in Nepal, with speakers from 11 countries.
+                  </p>
+                  <p>
+                    The Congress speakers included Prof. Dr. Nelson R. Pinto (Chile), Prof. Dott. Paolo G. Morselli (Italy), Dr. Robert
+                    Horowitz (USA), Dr. Myat Nyan (Myanmar), Dr. Chakra Raj Pandey (Nepal), Dr. Nicea Baptista Pardo (Brazil), Dr. Jinhwan
+                    Kim (Korea), Dr. Rajapas Panichuttra (Thailand), Dr. Mostaque Sattar (Bangladesh), Dr. Ashis Kakar (India), Dr. Lanka
+                    Mahesh (India) and Dr. Sandeep Singh (India). These renowned speakers, each an expert in the application of tissue
+                    regeneration in their field, voluntarily participated as Punyaarjan Knowledge Philanthropists, selflessly sharing their
+                    knowledge for the benefit of the profession and humanity.
+                  </p>
+                  <p>
+                    The conference moderators included Prof. Dr. Keshav D Joshi, Prof. Dr. Shaili Pradhan, Prof. Dr. Binod Acharya, Prof.
+                    Dr. Sarita Joshi, Prof. Dr. Suraj B Mathema and Prof. Dr. Surendra M Shrestha.
+                  </p>
+                  <p>
+                    Two workshops were also conducted during the three days. The pre-congress workshop on Advanced Techniques in Tissue
+                    Regeneration &amp; Bone Management was moderated by Prof. Dr. Myat Nyan (Myanmar), with speakers Dr. Robert Horowitz
+                    (USA) and Prof. Dr. Nelson R Pinto (Chile). Likewise, the post-congress workshop on Implant Occlusion &amp; Prosthetic
+                    Design was moderated by Dr. Jinhwan Kim (Korea), with speakers Dr. Rajapas Panichuttra (Thailand), Dr. Vikas Aggarwal
+                    (India), and Dr. Sushil Koirala (Nepal).
+                  </p>
+                    </div>
+                  </details>
+                  <a
+                    class="vcard"
+                    href="https://youtu.be/SHPVZwwHmAU"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Asian Congress 2018 · Watch on YouTube ↗"
+                    ><img src="assets/knowledge-philanthropy/asian-congress/asian congress thumbnail.png" alt="" loading="lazy" /><span class="play"
+                      ><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span
+                    ><span class="vcap">Asian Congress 2018 · Watch on YouTube ↗</span></a
+                  >
+                  <div class="galw">
+                    <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                    <div class="gal">
+                      <img
+                        src="assets/knowledge-philanthropy/asian-congress/1.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 1"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/asian-congress/2.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 2"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/asian-congress/3.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 3"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/asian-congress/4.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 4"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/asian-congress/5.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 5"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/asian-congress/6.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 6"
+                        loading="lazy"
+                      /><img src="assets/knowledge-philanthropy/asian-congress/7.JPG" alt="Asian Congress of Tissue Regeneration 2018, photo 7" loading="lazy" />
+                    </div>
+                    <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                  </div>
+                </div>
+              </article>
+              <article class="ev">
+                <div class="ev-meta"><span class="when">March 2016</span><span class="where">Nepal</span></div>
+                <div class="ev-body">
+                  <details class="ev-more">
+                    <summary>
+                      <h3>L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series</h3>
+                      <span class="ev-tog" aria-hidden="true"><span class="t-open">Read more</span><span class="t-close">Show less</span></span>
+                    </summary>
+                    <div class="ev-desc">
+                      <p>
+                    In March 2016, Punyaarjan Foundation invited Prof. Dr. Nelson R. Pinto to Nepal to introduce Natural-Guided Regeneration
+                    Therapy (N-GRT) using leukocyte- and platelet-rich fibrin (L-PRF), inspired by his work treating chronic foot ulcers.
+                    During the technology transfer visit, Dr. Pinto trained medical and dental professionals across Nepal and inaugurated
+                    the first L-PRF wound-healing clinic at Kirtipur Hospital, laying the foundation for affordable chronic wound care in
+                    resource-constrained settings.
+                  </p>
+                    </div>
+                  </details>
+                  <div class="galw">
+                    <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                    <div class="gal">
+                      <img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/1.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 1"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/2.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 2"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/3.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 3"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/4.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 4"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/5.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 5"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/6.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 6"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/7.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 7"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/8.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 8"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/9.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 9"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/10.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 10"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/11.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 11"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/12.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 12"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/13.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 13"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/lprf-ngrt-nepal-series/14.JPG"
+                        alt="L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series, photo 14"
+                        loading="lazy"
+                      />
+                    </div>
+                    <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ================= PAGE: RESOURCES (#/resources) ================= -->
+      <!-- To add a new topic, copy a whole <section class="rsec"> block below and change the title, text and items. -->
+      <div class="page" id="other-resources">
+        <div class="phead">
+          <div class="wrap">
+            <h1>Other <em>Resources</em></h1>
+            <p class="pdesc">
+              A growing collection of the our educational and awareness materials. 
+            </p>
+          </div>
+        </div>
+
+        <section class="rsec">
+          <div class="wrap">
+            <h1>Covid-19 Awareness Materials</h1>
+            <p class="rdesc">
+              Posters and booklets on Covid-19 risk and safety, and on its lingering effects. Most are in Nepali, with two in English, ready
+              to print for clinics, schools and community groups.
+            </p>
+            <div class="pfs">
+              <figure class="pf">
+                <a href="assets/other-resources/covid-awareness/covid-19-risk-level-booklet.pdf" target="_blank" rel="noopener" download="covid-19-risk-level-booklet.pdf" aria-label="Download PDF: COVID-19 Risk Level Booklet"><img
+                    src="assets/other-resources/covid-awareness/thumbnails/covid-19-risk-level-booklet.png"
+                    alt="Cover of the Nepali COVID-19 risk level booklet"
+                    loading="lazy"
+                /></a>
+                <figcaption><b>COVID-19 Risk Level Booklet</b><span>Nepali · 16-page booklet</span><em>Download PDF ↓</em></figcaption>
+              </figure>
+              <figure class="pf">
+                <a href="assets/other-resources/covid-awareness/covid-19-five-rules-poster.pdf" target="_blank" rel="noopener" download="five-rules-of-covid-19-safety.pdf" aria-label="Download PDF: Five Rules of COVID-19 Safety"><img
+                    src="assets/other-resources/covid-awareness/thumbnails/covid-19-five-rules-poster.png"
+                    alt="Nepali poster: five rules of COVID-19 safety"
+                    loading="lazy"
+                /></a>
+                <figcaption><b>Five Rules of COVID-19 Safety</b><span>Nepali · Poster</span><em>Download PDF ↓</em></figcaption>
+              </figure>
+              <figure class="pf w">
+                <a href="assets/other-resources/covid-awareness/covid-19-risk-level-poster.pdf" target="_blank" rel="noopener" download="covid-19-risk-levels.pdf" aria-label="Download PDF: COVID-19 Risk Levels"><img
+                    src="assets/other-resources/covid-awareness/thumbnails/covid-19-risk-level-poster.png"
+                    alt="Nepali poster showing COVID-19 risk levels for everyday activities"
+                    loading="lazy"
+                /></a>
+                <figcaption><b>COVID-19 Risk Levels</b><span>Nepali · Poster</span><em>Download PDF ↓</em></figcaption>
+              </figure>
+              <figure class="pf">
+                <a href="assets/other-resources/covid-awareness/long-covid-poster.pdf" target="_blank" rel="noopener" download="what-is-long-covid.pdf" aria-label="Download PDF: What is Long COVID?"><img src="assets/other-resources/covid-awareness/thumbnails/long-covid-poster.png" alt="Poster: What is Long COVID?" loading="lazy"
+                /></a>
+                <figcaption><b>What is Long COVID?</b><span>English · Poster</span><em>Download PDF ↓</em></figcaption>
+              </figure>
+              <figure class="pf">
+                <a href="assets/other-resources/covid-awareness/mouth-mask-syndrome.pdf" target="_blank" rel="noopener" download="mask-mouth-syndrome.pdf" aria-label="Download PDF: Mask Mouth Syndrome"><img src="assets/other-resources/covid-awareness/thumbnails/mouth-mask-syndrome.png" alt="Poster: Mask Mouth Syndrome" loading="lazy"
+                /></a>
+                <figcaption><b>Mask Mouth Syndrome</b><span>English · Poster</span><em>Download PDF ↓</em></figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+                <!-- ===== Earning your everest===== -->
+        <section class="rsec">
+          <div class="wrap">
+            <h1>Earning Your Everest</h1>
+            <p></p>
+            <div class="rbook">
+              <figure class="pf">
+                <a href="assets/other-resources/stories-of-achievement/earning-your-everest.pdf" target="_blank" rel="noopener" download="Earning-your-Everest.pdf" aria-label="Download PDF: Earning your Everest"
+                  ><img src="assets/other-resources/stories-of-achievement/thumbnails/earning-your-everest-cover.jpg" alt="Cover of the book Earning your Everest, showing Sudhigya Pant on the summit of Mount Everest" loading="lazy"
+                /></a>
+                <figcaption><b>Earning your Everest</b><span>English · 40-page book</span><em>Download PDF ↓</em></figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+        <section class="join">
+          <div class="wrap">
+            <p>
+              Although healthcare is our focus area, we are also interested in hearing and showcasing stories of achievement across a range
+              of fields to advance Nepali culture, the arts and more.
+            </p>
+            <h2>Have something to share?</h2>
+            <p style="margin-top: 34px"><a class="bx" href="#/support">Support Us</a></p>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div class="fg">
+          <div>
+            <img src="assets/home/punyaarjan-foundation-logo.png" alt="Punyaarjan Foundation" />
+            <p>We are working to turn scattered goodwill into focused action in healthcare.</p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <a href="#/about">About</a><a href="#/projects">Projects</a
+            ><a href="#/knowledge-philanthropy">Knowledge Philanthropy</a><a href="#/other-resources">Other Resources</a
+            ><a href="#/support">Support Us</a>
+          </div>
+
+          <div class="brow">
+            <h4>Subscribe to our blog</h4>
+            <div class="substack-embed">
+              <iframe
+                src="https://punyaperspectives.substack.com/embed?transparent=1"
+                width="500"
+                height="150"
+                style="border: 0; background: transparent"
+                frameborder="0"
+                scrolling="no"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <span>© <span id="y">2026</span> Punyaarjan Foundation. All rights reserved.</span><span>In giving, you receive.</span>
+        </div>
+      </div>
+    </footer>
+
+        <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+      /* ---------- Routing: add a page by adding it to ROUTES and creating <div class="page" id="..."> ---------- */
+      var ROUTES = {
+        "": "home",
+        about: "about",
+        "wound-healing": "wound",
+        "help-to-smile": "smile",
+        support: "support",
+        "knowledge-philanthropy": "knowledge",
+        "other-resources": "other-resources",
+      };
+      function route() {
+        var s = location.hash.replace(/^#\/?/, ""),
+          p = ROUTES[s] || "home";
+        document.querySelectorAll(".page").forEach(function (el) {
+          el.classList.toggle("on", el.id === p);
+        });
+        document.querySelectorAll("nav a").forEach(function (a) {
+          var r = a.getAttribute("data-r");
+          a.classList.toggle("cur", r === s || ((s === "wound-healing" || s === "help-to-smile") && r === "projects"));
+        });
+        var e = (s === "projects" || s === "join") && document.getElementById(s);
+        if (e) {
+          e.scrollIntoView();
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }
+      /* ---------- Photo galleries: arrow buttons scroll the strip ---------- */
+      addEventListener("click", function (e) {
+        var b = e.target.closest && e.target.closest(".gb");
+        if (!b) return;
+        var g = b.parentNode.querySelector(".gal");
+        g.scrollBy({ left: +b.getAttribute("data-d") * g.clientWidth * 0.8, behavior: "smooth" });
+      });
+      addEventListener("hashchange", route);
+      route();
+
+      /* ---------- Header height -> --hh, so the hero can fill exactly the rest of the first screen ---------- */
+      (function () {
+        var h = document.querySelector("header");
+        function set() {
+          if (h) document.documentElement.style.setProperty("--hh", h.offsetHeight + "px");
+        }
+        set();
+        addEventListener("resize", set);
+        addEventListener("load", set);
+      })();
+      /* ---------- Mobile menu: hamburger toggles the nav; closes on link tap, route change or Escape ---------- */
+      (function () {
+        var h = document.querySelector("header"), b = document.querySelector(".menu-btn");
+        if (!h || !b) return;
+        function set(open) { h.classList.toggle("open", open); b.setAttribute("aria-expanded", open); b.setAttribute("aria-label", open ? "Close menu" : "Open menu"); }
+        b.addEventListener("click", function () { set(!h.classList.contains("open")); });
+        h.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("nav a, .bx")) set(false); });
+        addEventListener("hashchange", function () { set(false); });
+        addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+        document.addEventListener("click", function (e) { if (!h.contains(e.target)) set(false); });
+      })();
+    </script>
+    <script>
+      /* ---------- Hero wave: rises from the bottom centre as flattening ellipses, hits the top edge, flips and comes back down ---------- */
+      (function () {
+        var svg = document.querySelector(".rip");
+        if (!svg) return;
+        var NS = "http://www.w3.org/2000/svg",
+          g = svg.querySelector("g");
+        if (!g) return;
+        while (g.firstChild) g.removeChild(g.firstChild);
+        g.removeAttribute("opacity");
+        /* ===== WAVE SETTINGS: change these numbers ===== */
+        var V = 180 /* speed of the wave going up */,
+          BACK = 180 /* speed of the reflected wave coming back down */,
+          N = 5 /* number of lines in the wave */,
+          G0 = 12,
+          G1 = 0.07 /* gap between lines: starting gap, and how much it grows as the wave travels */,
+          STRETCH = 0.3 /* how quickly the innermost line flattens into a wide ellipse (0 = stays circular, higher = flatter sooner) */,
+          OUTER = 1.2 /* extra flattening for the outer lines: the outermost line flattens (1 + OUTER) times as much as the innermost, lines in between scale evenly. 0 = all lines flatten alike */,
+          P = 11 /* length of one loop, in seconds */,
+          FADE = 3.4 /* seconds the reflected wave takes to travel back down and fade */,
+          OP = 0.3 /* brightness of the wave */,
+          SW = 1.5; /* line thickness */
+        /* =============================================== */
+        var W = 1200,
+          H = 600,
+          k = 1,
+          TC = [],
+          i;
+        svg.setAttribute("preserveAspectRatio", "none");
+        var df = document.createElementNS(NS, "defs"),
+          lg = document.createElementNS(NS, "linearGradient");
+        lg.setAttribute("id", "wvg");
+        lg.setAttribute("gradientUnits", "userSpaceOnUse");
+        lg.setAttribute("x1", 0);
+        lg.setAttribute("y1", 0);
+        lg.setAttribute("y2", 0);
+        /* lines are a little fainter towards the left and right edges */
+        [
+          [0, 0.45],
+          [0.3, 1],
+          [0.7, 1],
+          [1, 0.45],
+        ].forEach(function (s) {
+          var e = document.createElementNS(NS, "stop");
+          e.setAttribute("offset", s[0]);
+          e.setAttribute("stop-color", "#fff6df");
+          e.setAttribute("stop-opacity", s[1]);
+          lg.appendChild(e);
+        });
+        df.appendChild(lg);
+        svg.appendChild(df);
+        var rings = [];
+        for (i = 0; i < N; i++) {
+          var e = document.createElementNS(NS, "ellipse");
+          e.setAttribute("fill", "none");
+          e.setAttribute("stroke", "url(#wvg)");
+          e.setAttribute("stroke-width", SW);
+          e.setAttribute("stroke-opacity", 0);
+          g.appendChild(e);
+          rings.push(e);
+        }
+        function es(v) {
+          v = v < 0 ? 0 : v > 1 ? 1 : v;
+          return v * v * (3 - 2 * v);
+        }
+        /* distance travelled by line i at time t (later lines trail behind the first) */
+        function up(i, t) {
+          var r = V * k * t;
+          return r - i * (G0 * k + G1 * r);
+        }
+        /* half-width of the ellipse for line i at a given distance travelled: starts circular, gets wider and flatter (outer lines faster) */
+        function rx(d, i) {
+          var outer = N > 1 ? (N - 1 - i) / (N - 1) : 0; /* 1 for the outermost line (0), 0 for the innermost */
+          return d * (1 + (STRETCH * (1 + OUTER * outer) * Math.min(d, 2 * H)) / H);
+        }
+        function size() {
+          W = svg.clientWidth || 1200;
+          H = svg.clientHeight || 600;
+          k = H / 600;
+          svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+          lg.setAttribute("x2", W);
+          for (var i = 0; i < N; i++) {
+            var t = 0;
+            while (t < 30 && up(i, t) < H) t += 0.005;
+            TC[i] = t; /* time at which line i reaches the top edge and turns back */
+          }
+        }
+        function put(e, cx, cy, rX, rY, o) {
+          if (o <= 0.003 || rY <= 1) {
+            e.setAttribute("stroke-opacity", 0);
+            return;
+          }
+          e.setAttribute("cx", cx.toFixed(1));
+          e.setAttribute("cy", cy.toFixed(1));
+          e.setAttribute("rx", rX.toFixed(1));
+          e.setAttribute("ry", rY.toFixed(1));
+          e.setAttribute("stroke-opacity", o.toFixed(3));
+        }
+        function draw(t) {
+          rings.forEach(function (e, i) {
+            var d = up(i, t),
+              a,
+              u;
+            if (d <= 1) {
+              put(e, 0, 0, 0, 0, 0);
+              return;
+            }
+            if (t < TC[i]) {
+              /* going up: ellipse centred on the bottom centre */
+              a = es(t / 1.4) * (0.5 + 0.5 * es(d / (H * 0.62)));
+              a *= 0.85 + 0.15 * Math.sin((6.2832 * t) / 1.9 + i * 1.4);
+              put(e, W / 2, H, rx(d, i), d, OP * a);
+            } else {
+              /* reflected: the same wave mirrored in the top edge, so it curves the other way and travels back down */
+              u = (t - TC[i]) / FADE;
+              if (u >= 1) {
+                put(e, 0, 0, 0, 0, 0);
+                return;
+              }
+              d = H + BACK * k * (t - TC[i]);
+              a = 1 - es(u);
+              a *= 0.85 + 0.15 * Math.sin((6.2832 * t) / 1.9 + i * 1.4);
+              put(e, W / 2, -H, rx(d, i), d, OP * a);
+            }
+          });
+        }
+        size();
+        if (window.ResizeObserver) new ResizeObserver(size).observe(svg);
+        addEventListener("resize", size);
+        if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          draw(2.6);
+          return;
+        }
+        var st = null;
+        function frame(n) {
+          if (st === null) st = n;
+          if (svg.getBoundingClientRect().height > 0) draw(((n - st) / 1000) % P);
+          requestAnimationFrame(frame);
+        }
+        draw(0);
+        requestAnimationFrame(frame);
+      })();
+    </script>
+    <script>
+      (function () {
+        var f = document.getElementById("sform");
+        if (!f) return;
+        var TO = "";
+        var note = document.getElementById("fnote");
+        function say(t, e) {
+          note.textContent = t;
+          note.className = e ? "err" : "";
+        }
+        f.addEventListener("submit", function (ev) {
+          ev.preventDefault();
+          var d = new FormData(f),
+            n = (d.get("name") || "").trim(),
+            m = (d.get("email") || "").trim();
+          if (!n || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)) {
+            say("Please add your name and a valid email address.", true);
+            return;
+          }
+          var how = d.getAll("how").join(", ") || "Not specified";
+          var body =
+            "Name: " +
+            n +
+            "\nEmail: " +
+            m +
+            "\nPhone: " +
+            ((d.get("phone") || "").trim() || "-") +
+            "\nOrganization: " +
+            ((d.get("org") || "").trim() || "-") +
+            "\nWays to support: " +
+            how +
+            "\n\nMessage:\n" +
+            ((d.get("msg") || "").trim() || "-");
+          if (!TO) {
+            say("Thank you. This form is not connected to an inbox yet.", true);
+            return;
+          }
+          var a = document.createElement("a");
+          a.href = "mailto:" + TO + "?subject=" + encodeURIComponent("Support enquiry from " + n) + "&body=" + encodeURIComponent(body);
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          say("Your email app should open with your message ready to send.");
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var s = document.getElementById("msc");
+        if (!s) return;
+        var p = s.querySelector(".pun"),
+          a = s.querySelector(".aar"),
+          q = 0;
+        var red = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        function cl(v) {
+          return v < 0 ? 0 : v > 1 ? 1 : v;
+        }
+        function es(t) {
+          return t * t * (3 - 2 * t);
+        }
+        function upd() {
+          q = 0;
+          var r = s.getBoundingClientRect();
+          if (!r.height) return;
+          var t = cl((innerHeight * 0.8 - (r.top + r.height / 2)) / (innerHeight * 0.3));
+          var u = red ? 1 : es(cl(t / 0.5)),
+            w = red ? 1 : es(cl((t - 0.5) / 0.5));
+          p.style.opacity = u;
+          p.style.transform = "translate(" + (-16 * (1 - u)).toFixed(1) + "px," + (10 * (1 - u)).toFixed(1) + "px)";
+          a.style.opacity = w;
+          a.style.transform = "translate(" + (16 * (1 - w)).toFixed(1) + "px," + (-10 * (1 - w)).toFixed(1) + "px)";
+        }
+        function sch() {
+          if (!q) q = requestAnimationFrame(upd);
+        }
+        addEventListener("scroll", sch, { passive: true });
+        addEventListener("resize", sch);
+        addEventListener("hashchange", function () {
+          setTimeout(upd, 30);
+        });
+        upd();
+      })();
+    </script>
+</body>
+</html>

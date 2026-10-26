@@ -1944,6 +1944,20 @@
       @media(min-width:901px){.muskan .cleft{grid-template-columns:minmax(0,280px) 1fr;gap:64px}}
       .muskan .cimg{max-width:280px}
     
+    
+      /* ---- Expandable events: title toggles the description (hidden until opened) ---- */
+      .ev-more summary { display: block; list-style: none; cursor: pointer; }
+      .ev-more summary::-webkit-details-marker { display: none; }
+      .ev-more summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
+      .ev-more summary h3 { margin-bottom: 14px; transition: color 0.2s; }
+      .ev-more summary:hover h3 { color: var(--goldtx); }
+      .ev-tog { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--goldtx); }
+      .ev-tog::before { content: "+"; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1px solid var(--goldtx); font-size: 16px; line-height: 1; letter-spacing: 0; }
+      .ev-more[open] .ev-tog::before { content: "\2212"; }
+      .ev-tog .t-close, .ev-more[open] .ev-tog .t-open { display: none; }
+      .ev-more[open] .ev-tog .t-close { display: inline; }
+      .ev-desc { padding-top: 22px; }
+      .ev-desc p:last-child { margin-bottom: 0; }
     </style>
   </head>
 
@@ -3132,18 +3146,171 @@
           <div class="wrap" style="max-width: 1000px">
             <h2 class="ct">Past <em>events</em></h2>
             <div class="ev-list">
-              <!-- ===== EVENT: copy a whole <article class="ev"> block to add a new event (newest/oldest order is up to you) ===== -->
+              <!-- ===== EVENTS are listed newest first. To add one, copy a whole article block (the one starting with the ev-meta line) and paste it at the TOP of this list. The text inside the ev-desc div is hidden until the title is clicked. ===== -->
+              <article class="ev">
+                <div class="ev-meta"><span class="when">6–7 September 2019</span><span class="where">Myanmar</span></div>
+                <div class="ev-body">
+                  <details class="ev-more">
+                    <summary>
+                      <h3>First Myanmar Wound Care Society Summit</h3>
+                      <span class="ev-tog" aria-hidden="true"><span class="t-open">Read more</span><span class="t-close">Show less</span></span>
+                    </summary>
+                    <div class="ev-desc">
+                      <p>
+                    On behalf of the Punyaarjan Chronic Wound Healing Project, Myanmar Chapter, Dr. Nay Aung presented ‘Natural Guided
+                    Regeneration in Wound Healing’ during the First Myanmar Wound Care Society Summit. This opportunity allowed the
+                    Punyaarjan Foundation to further advocate for the widespread adoption of the N-GRT with L-PRF wound-healing technology
+                    in Myanmar.
+                  </p>
+                    </div>
+                  </details>
+                  </div>
+              </article>
+              <article class="ev">
+                <div class="ev-meta"><span class="when">19 July 2019</span></div>
+                <div class="ev-body">
+                  <details class="ev-more">
+                    <summary>
+                      <h3>Natural Guided Regeneration in Wound Healing: A Nepalese Experience</h3>
+                      <span class="ev-tog" aria-hidden="true"><span class="t-open">Read more</span><span class="t-close">Show less</span></span>
+                    </summary>
+                    <div class="ev-desc">
+                      <p>A talk by Dr. Sushil Koirala.</p>
+                    </div>
+                  </details>
+                  <a
+                    class="vcard"
+                    href="https://youtu.be/Bj6hjolDBaU"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Dr. Sushil Koirala · Watch on YouTube ↗"
+                    ><img src="assets/knowledge-philanthropy/nepalese-experience/nepalese-experience-video.png" alt="" loading="lazy" /><span class="play"
+                      ><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span
+                    ><span class="vcap">Dr. Sushil Koirala · Watch on YouTube ↗</span></a
+                  >
+                </div>
+              </article>
+              <article class="ev">
+                <div class="ev-meta"><span class="when">7–9 September 2018</span><span class="where">Belgium</span></div>
+                <div class="ev-body">
+                  <details class="ev-more">
+                    <summary>
+                      <h3>Second European Meeting on Enhanced Natural Healing in Dentistry</h3>
+                      <span class="ev-tog" aria-hidden="true"><span class="t-open">Read more</span><span class="t-close">Show less</span></span>
+                    </summary>
+                    <div class="ev-desc">
+                      <p>
+                    The Catholic University of Leuven invited the Punyaarjan Foundation to the 2nd European Meeting on Enhanced Natural
+                    Healing in Dentistry in September 2018. This allowed the Foundation to showcase the achievements of its Chronic Wound
+                    Healing Project, especially in treating chronic extraoral wounds with L-PRF, like Leprosy plantar ulcers. Dr. Sushil
+                    Koirala, on behalf of the Foundation, presented Nepal’s rapid acceptance of and success with the L-PRF technology.
+                  </p>
+                  <p>
+                    This event marked a milestone in advocating for the widespread adoption of this affordable wound-healing technology.
+                    Special thanks to the Congress Committee, specifically Prof. Dr. Marc Quirynen and Prof. Dr. Nelson Pinto for organizing
+                    the successful event, attended by over 450 participants from 40 countries.
+                  </p>
+                    </div>
+                  </details>
+                  </div>
+              </article>
+              <article class="ev">
+                <div class="ev-meta"><span class="when">16–18 March 2018</span><span class="where">Nepal</span></div>
+                <div class="ev-body">
+                  <details class="ev-more">
+                    <summary>
+                      <h3>Asian Congress of Tissue Regeneration in Medicine &amp; Oral Implantology</h3>
+                      <span class="ev-tog" aria-hidden="true"><span class="t-open">Read more</span><span class="t-close">Show less</span></span>
+                    </summary>
+                    <div class="ev-desc">
+                      <p>
+                    Under the Punyaarjan Chronic Wound Healing Project, and in collaboration with the Asian College of Oral Implantology
+                    &amp; Tissue Regeneration, Public Health Concern Trust Nepal, National Dental Hospital, and Nepal Oral Implantology
+                    Association, the Punyaarjan Foundation organized a 3 day-long congress on Tissue Regeneration in Medicine and Oral
+                    Implantology in Nepal, with speakers from 11 countries.
+                  </p>
+                  <p>
+                    The Congress speakers included Prof. Dr. Nelson R. Pinto (Chile), Prof. Dott. Paolo G. Morselli (Italy), Dr. Robert
+                    Horowitz (USA), Dr. Myat Nyan (Myanmar), Dr. Chakra Raj Pandey (Nepal), Dr. Nicea Baptista Pardo (Brazil), Dr. Jinhwan
+                    Kim (Korea), Dr. Rajapas Panichuttra (Thailand), Dr. Mostaque Sattar (Bangladesh), Dr. Ashis Kakar (India), Dr. Lanka
+                    Mahesh (India) and Dr. Sandeep Singh (India). These renowned speakers, each an expert in the application of tissue
+                    regeneration in their field, voluntarily participated as Punyaarjan Knowledge Philanthropists, selflessly sharing their
+                    knowledge for the benefit of the profession and humanity.
+                  </p>
+                  <p>
+                    The conference moderators included Prof. Dr. Keshav D Joshi, Prof. Dr. Shaili Pradhan, Prof. Dr. Binod Acharya, Prof.
+                    Dr. Sarita Joshi, Prof. Dr. Suraj B Mathema and Prof. Dr. Surendra M Shrestha.
+                  </p>
+                  <p>
+                    Two workshops were also conducted during the three days. The pre-congress workshop on Advanced Techniques in Tissue
+                    Regeneration &amp; Bone Management was moderated by Prof. Dr. Myat Nyan (Myanmar), with speakers Dr. Robert Horowitz
+                    (USA) and Prof. Dr. Nelson R Pinto (Chile). Likewise, the post-congress workshop on Implant Occlusion &amp; Prosthetic
+                    Design was moderated by Dr. Jinhwan Kim (Korea), with speakers Dr. Rajapas Panichuttra (Thailand), Dr. Vikas Aggarwal
+                    (India), and Dr. Sushil Koirala (Nepal).
+                  </p>
+                    </div>
+                  </details>
+                  <a
+                    class="vcard"
+                    href="https://youtu.be/SHPVZwwHmAU"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Asian Congress 2018 · Watch on YouTube ↗"
+                    ><img src="assets/knowledge-philanthropy/asian-congress/asian congress thumbnail.png" alt="" loading="lazy" /><span class="play"
+                      ><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span
+                    ><span class="vcap">Asian Congress 2018 · Watch on YouTube ↗</span></a
+                  >
+                  <div class="galw">
+                    <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
+                    <div class="gal">
+                      <img
+                        src="assets/knowledge-philanthropy/asian-congress/1.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 1"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/asian-congress/2.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 2"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/asian-congress/3.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 3"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/asian-congress/4.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 4"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/asian-congress/5.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 5"
+                        loading="lazy"
+                      /><img
+                        src="assets/knowledge-philanthropy/asian-congress/6.JPG"
+                        alt="Asian Congress of Tissue Regeneration 2018, photo 6"
+                        loading="lazy"
+                      /><img src="assets/knowledge-philanthropy/asian-congress/7.JPG" alt="Asian Congress of Tissue Regeneration 2018, photo 7" loading="lazy" />
+                    </div>
+                    <button class="gb r" data-d="1" aria-label="Next photos">›</button>
+                  </div>
+                </div>
+              </article>
               <article class="ev">
                 <div class="ev-meta"><span class="when">March 2016</span><span class="where">Nepal</span></div>
                 <div class="ev-body">
-                  <h3>L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series</h3>
-                  <p>
+                  <details class="ev-more">
+                    <summary>
+                      <h3>L-PRF Natural Guided Regeneration, Nepal Knowledge Transfer Series</h3>
+                      <span class="ev-tog" aria-hidden="true"><span class="t-open">Read more</span><span class="t-close">Show less</span></span>
+                    </summary>
+                    <div class="ev-desc">
+                      <p>
                     In March 2016, Punyaarjan Foundation invited Prof. Dr. Nelson R. Pinto to Nepal to introduce Natural-Guided Regeneration
                     Therapy (N-GRT) using leukocyte- and platelet-rich fibrin (L-PRF), inspired by his work treating chronic foot ulcers.
                     During the technology transfer visit, Dr. Pinto trained medical and dental professionals across Nepal and inaugurated
                     the first L-PRF wound-healing clinic at Kirtipur Hospital, laying the foundation for affordable chronic wound care in
                     resource-constrained settings.
                   </p>
+                    </div>
+                  </details>
                   <div class="galw">
                     <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
                     <div class="gal">
@@ -3207,124 +3374,6 @@
                     </div>
                     <button class="gb r" data-d="1" aria-label="Next photos">›</button>
                   </div>
-                </div>
-              </article>
-              <article class="ev">
-                <div class="ev-meta"><span class="when">16–18 March 2018</span><span class="where">Nepal</span></div>
-                <div class="ev-body">
-                  <h3>Asian Congress of Tissue Regeneration in Medicine &amp; Oral Implantology</h3>
-                  <p>
-                    Under the Punyaarjan Chronic Wound Healing Project, and in collaboration with the Asian College of Oral Implantology
-                    &amp; Tissue Regeneration, Public Health Concern Trust Nepal, National Dental Hospital, and Nepal Oral Implantology
-                    Association, the Punyaarjan Foundation organized a 3 day-long congress on Tissue Regeneration in Medicine and Oral
-                    Implantology in Nepal, with speakers from 11 countries.
-                  </p>
-                  <p>
-                    The Congress speakers included Prof. Dr. Nelson R. Pinto (Chile), Prof. Dott. Paolo G. Morselli (Italy), Dr. Robert
-                    Horowitz (USA), Dr. Myat Nyan (Myanmar), Dr. Chakra Raj Pandey (Nepal), Dr. Nicea Baptista Pardo (Brazil), Dr. Jinhwan
-                    Kim (Korea), Dr. Rajapas Panichuttra (Thailand), Dr. Mostaque Sattar (Bangladesh), Dr. Ashis Kakar (India), Dr. Lanka
-                    Mahesh (India) and Dr. Sandeep Singh (India). These renowned speakers, each an expert in the application of tissue
-                    regeneration in their field, voluntarily participated as Punyaarjan Knowledge Philanthropists, selflessly sharing their
-                    knowledge for the benefit of the profession and humanity.
-                  </p>
-                  <p>
-                    The conference moderators included Prof. Dr. Keshav D Joshi, Prof. Dr. Shaili Pradhan, Prof. Dr. Binod Acharya, Prof.
-                    Dr. Sarita Joshi, Prof. Dr. Suraj B Mathema and Prof. Dr. Surendra M Shrestha.
-                  </p>
-                  <p>
-                    Two workshops were also conducted during the three days. The pre-congress workshop on Advanced Techniques in Tissue
-                    Regeneration &amp; Bone Management was moderated by Prof. Dr. Myat Nyan (Myanmar), with speakers Dr. Robert Horowitz
-                    (USA) and Prof. Dr. Nelson R Pinto (Chile). Likewise, the post-congress workshop on Implant Occlusion &amp; Prosthetic
-                    Design was moderated by Dr. Jinhwan Kim (Korea), with speakers Dr. Rajapas Panichuttra (Thailand), Dr. Vikas Aggarwal
-                    (India), and Dr. Sushil Koirala (Nepal).
-                  </p>
-                  <a
-                    class="vcard"
-                    href="https://youtu.be/SHPVZwwHmAU"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Asian Congress 2018 · Watch on YouTube ↗"
-                    ><img src="assets/knowledge-philanthropy/asian-congress/asian congress thumbnail.png" alt="" loading="lazy" /><span class="play"
-                      ><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span
-                    ><span class="vcap">Asian Congress 2018 · Watch on YouTube ↗</span></a
-                  >
-                  <div class="galw">
-                    <button class="gb l" data-d="-1" aria-label="Previous photos">‹</button>
-                    <div class="gal">
-                      <img
-                        src="assets/knowledge-philanthropy/asian-congress/1.JPG"
-                        alt="Asian Congress of Tissue Regeneration 2018, photo 1"
-                        loading="lazy"
-                      /><img
-                        src="assets/knowledge-philanthropy/asian-congress/2.JPG"
-                        alt="Asian Congress of Tissue Regeneration 2018, photo 2"
-                        loading="lazy"
-                      /><img
-                        src="assets/knowledge-philanthropy/asian-congress/3.JPG"
-                        alt="Asian Congress of Tissue Regeneration 2018, photo 3"
-                        loading="lazy"
-                      /><img
-                        src="assets/knowledge-philanthropy/asian-congress/4.JPG"
-                        alt="Asian Congress of Tissue Regeneration 2018, photo 4"
-                        loading="lazy"
-                      /><img
-                        src="assets/knowledge-philanthropy/asian-congress/5.JPG"
-                        alt="Asian Congress of Tissue Regeneration 2018, photo 5"
-                        loading="lazy"
-                      /><img
-                        src="assets/knowledge-philanthropy/asian-congress/6.JPG"
-                        alt="Asian Congress of Tissue Regeneration 2018, photo 6"
-                        loading="lazy"
-                      /><img src="assets/knowledge-philanthropy/asian-congress/7.JPG" alt="Asian Congress of Tissue Regeneration 2018, photo 7" loading="lazy" />
-                    </div>
-                    <button class="gb r" data-d="1" aria-label="Next photos">›</button>
-                  </div>
-                </div>
-              </article>
-              <article class="ev">
-                <div class="ev-meta"><span class="when">7–9 September 2018</span><span class="where">Belgium</span></div>
-                <div class="ev-body">
-                  <h3>Second European Meeting on Enhanced Natural Healing in Dentistry</h3>
-                  <p>
-                    The Catholic University of Leuven invited the Punyaarjan Foundation to the 2nd European Meeting on Enhanced Natural
-                    Healing in Dentistry in September 2018. This allowed the Foundation to showcase the achievements of its Chronic Wound
-                    Healing Project, especially in treating chronic extraoral wounds with L-PRF, like Leprosy plantar ulcers. Dr. Sushil
-                    Koirala, on behalf of the Foundation, presented Nepal’s rapid acceptance of and success with the L-PRF technology.
-                  </p>
-                  <p>
-                    This event marked a milestone in advocating for the widespread adoption of this affordable wound-healing technology.
-                    Special thanks to the Congress Committee, specifically Prof. Dr. Marc Quirynen and Prof. Dr. Nelson Pinto for organizing
-                    the successful event, attended by over 450 participants from 40 countries.
-                  </p>
-                </div>
-              </article>
-              <article class="ev">
-                <div class="ev-meta"><span class="when">19 July 2019</span></div>
-                <div class="ev-body">
-                  <h3>Natural Guided Regeneration in Wound Healing: A Nepalese Experience</h3>
-                  <p>A talk by Dr. Sushil Koirala.</p>
-                  <a
-                    class="vcard"
-                    href="https://youtu.be/Bj6hjolDBaU"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Dr. Sushil Koirala · Watch on YouTube ↗"
-                    ><img src="assets/knowledge-philanthropy/nepalese-experience/nepalese-experience-video.png" alt="" loading="lazy" /><span class="play"
-                      ><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span
-                    ><span class="vcap">Dr. Sushil Koirala · Watch on YouTube ↗</span></a
-                  >
-                </div>
-              </article>
-              <article class="ev">
-                <div class="ev-meta"><span class="when">6–7 September 2019</span><span class="where">Myanmar</span></div>
-                <div class="ev-body">
-                  <h3>First Myanmar Wound Care Society Summit</h3>
-                  <p>
-                    On behalf of the Punyaarjan Chronic Wound Healing Project, Myanmar Chapter, Dr. Nay Aung presented ‘Natural Guided
-                    Regeneration in Wound Healing’ during the First Myanmar Wound Care Society Summit. This opportunity allowed the
-                    Punyaarjan Foundation to further advocate for the widespread adoption of the N-GRT with L-PRF wound-healing technology
-                    in Myanmar.
-                  </p>
                 </div>
               </article>
             </div>
